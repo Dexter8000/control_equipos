@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema avanzado de gestión de préstamos de equipos electrónicos">
+    <title>Sistema de Préstamos de Equipos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Animaciones personalizadas */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        /* Scroll personalizado */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Efecto hover para botones */
+        .btn-hover {
+            transition: all 0.2s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Efecto para inputs */
+        .input-focus:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        
+        .dark-mode .sidebar {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        
+        .dark-mode .dashboard-card {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="flex">
+        <!-- Barra lateral -->
+        <div class="sidebar w-64 min-h-screen bg-blue-800 text-white transition-all duration-300">
+            <div class="p-4 flex items-center justify-between border-b border-blue-700">
+                <div class="flex items-center">
+                    <i class="fas fa-laptop-house text-2xl mr-3"></i>
+                    <h1 class="text-xl font-bold">Control de Equipos</h1>
+                </div>
+                <button id="toggle-sidebar" class="text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="p-4">
+                <ul>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg bg-blue-700">
+                            <i class="fas fa-tachometer-alt mr-3"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-users mr-3"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-hard-hat mr-3"></i>
+                            <span>Trabajadores</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-laptop mr-3"></i>
+                            <span>Equipos</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-box-open mr-3"></i>
+                            <span>Préstamos</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-file-alt mr-3"></i>
+                            <span>Detalles</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-undo-alt mr-3"></i>
+                            <span>Devoluciones</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-clipboard-list mr-3"></i>
+                            <span>Auditoría</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-cog mr-3"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                    <li class="mt-8 border-t border-blue-700 pt-4">
+                        <a href="#" class="flex items-center p-2 rounded-lg hover:bg-blue-700">
+                            <i class="fas fa-sign-out-alt mr-3"></i>
+                            <span>Cerrar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="flex-1">
+            <!-- Barra superior -->
+            <header class="bg-white shadow-sm p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <button id="menu-toggle" class="text-gray-600 mr-4 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="text-xl font-semibold">Sistema de Préstamos de Equipos</h1>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="text-gray-600 hover:text-blue-700 focus:outline-none">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="relative">
+                        <button id="notification-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none relative">
+                            <i class="fas fa-bell"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                        
+                        <div id="notification-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg py-1 z-50">
+                            <div class="px-4 py-2 border-b border-gray-200">
+                                <h3 class="text-sm font-medium text-gray-700">Notificaciones</h3>
+                            </div>
+                            <div class="max-h-60 overflow-y-auto">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 text-blue-500 mt-1 mr-3">
+                                            <i class="fas fa-info-circle"></i>
+                                        </div>
+                                        <div>
+                                            <p>Equipo #1234 devuelto con retraso</p>
+                                            <p class="text-xs text-gray-500">Hace 2 horas</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 text-yellow-500 mt-1 mr-3">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div>
+                                            <p>Solicitud de préstamo pendiente</p>
+                                            <p class="text-xs text-gray-500">Hace 5 horas</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 text-green-500 mt-1 mr-3">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div>
+                                            <p>Nuevo equipo registrado</p>
+                                            <p class="text-xs text-gray-500">Ayer</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="px-4 py-2 border-t border-gray-200">
+                                <a href="#" class="text-xs text-blue-600 hover:text-blue-800">Ver todas las notificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <button id="user-menu-btn" class="flex items-center text-gray-600 hover:text-blue-700 focus:outline-none">
+                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white mr-2">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span class="hidden md:inline">Admin</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs hidden md:inline"></i>
+                        </button>
+                        
+                        <div id="user-menu-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user mr-2"></i> Perfil
+                            </a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-cog mr-2"></i> Configuración
+                            </a>
+                            <div class="border-t border-gray-200"></div>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Cerrar sesión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido del dashboard -->
+            <main class="p-6">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Bienvenido, Administrador</h2>
+                    <p class="text-gray-600">Gestión eficiente de préstamos y devoluciones de equipos electrónicos</p>
+                </div>
+                
+                <!-- Tarjetas resumen -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    <div class="dashboard-card bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                                <i class="fas fa-laptop text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Equipos Disponibles</p>
+                                <p class="text-2xl font-bold text-gray-800">25</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800 flex items-center">
+                                Ver detalles <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                                <i class="fas fa-box-open text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Préstamos Activos</p>
+                                <p class="text-2xl font-bold text-gray-800">10</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800 flex items-center">
+                                Gestionar préstamos <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
+                                <i class="fas fa-undo-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Devoluciones Pendientes</p>
+                                <p class="text-2xl font-bold text-gray-800">3</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800 flex items-center">
+                                Ver devoluciones <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Usuarios Registrados</p>
+                                <p class="text-2xl font-bold text-gray-800">15</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800 flex items-center">
+                                Administrar usuarios <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sección de préstamos recientes -->
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800">Préstamos Recientes</h3>
+                        <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Ver todos</a>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">N° Préstamo</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Empleado</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equipos</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">PR-2023-001</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Juan Pérez</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Laptop HP, Teléfono</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/06/2023</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-eye"></i></a>
+                                        <a href="#" class="text-yellow-600 hover:text-yellow-900"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">PR-2023-002</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">María González</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Tablet Samsung</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">14/06/2023</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pendiente</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-eye"></i></a>
+                                        <a href="#" class="text-yellow-600 hover:text-yellow-900"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">PR-2023-003</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Carlos Rojas</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Teléfono Satelital</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13/06/2023</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Vencido</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3"><i class="fas fa-eye"></i></a>
+                                        <a href="#" class="text-yellow-600 hover:text-yellow-900"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Sección de actividad reciente -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Actividad Reciente</h3>
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800">Ver todo</a>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full text-blue-600 mr-3">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Juan Pérez solicitó préstamo de Laptop HP EliteBook</p>
+                                    <p class="text-xs text-gray-500">Hace 30 minutos</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-green-100 p-2 rounded-full text-green-600 mr-3">
+                                    <i class="fas fa-undo"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">María González devolvió Proyector Epson X41</p>
+                                    <p class="text-xs text-gray-500">Hace 2 horas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-purple-100 p-2 rounded-full text-purple-600 mr-3">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-800">Admin registró 5 nuevos equipos en el sistema</p>
+                                    <p class="text-xs text-gray-500">Ayer, 15:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gráfico de préstamos por categoría -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Préstamos por Categoría</h3>
+                            <div class="flex space-x-2">
+                                <button class="text-xs px-2 py-1 bg-gray-100 rounded">Semanal</button>
+                                <button class="text-xs px-2 py-1 bg-blue-600 text-white rounded">Mensual</button>
+                                <button class="text-xs px-2 py-1 bg-gray-100 rounded">Anual</button>
+                            </div>
+                        </div>
+                        
+                        <div class="h-64 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-chart-pie text-4xl text-gray-300 mb-2"></i>
+                                <p class="text-gray-500">Gráfico de préstamos por categoría</p>
+                                <p class="text-xs text-gray-400">(Datos de ejemplo)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <!-- Pie de página -->
+            <footer class="bg-white border-t border-gray-200 p-4">
+                <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-500 mb-2 md:mb-0">&copy; 2023 Sistema de Préstamos de Equipos. Todos los derechos reservados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Términos</a>
+                        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Privacidad</a>
+                        <a href="#" class="text-sm text-gray-500 hover:text-gray-700">Contacto</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4 fade-in">
+            <div class="flex items-center mb-4">
+                <div class="bg-green-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800">Préstamo registrado</h3>
+            </div>
+            <p class="text-gray-600 mb-6">El préstamo se ha registrado correctamente. Se ha enviado una copia al correo del empleado.</p>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                <p class="text-sm text-gray-600">Número de préstamo:</p>
+                <p id="modal-num-prestamo" class="font-bold text-blue-800">PR-2023-001</p>
+            </div>
+            <div class="flex justify-end">
+                <button id="close-modal" class="btn-hover bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let equiposSeleccionados = [];
+        let empleadoActual = null;
+        let equipoActual = null;
+        let numPrestamo = '';
+        let trabajadores = [];
+        let departamentos = [];
+        let equipos;
+
+        // Función para guardar los datos en equipos.json
+        function guardarDatosEnJSON() {
+            // Crear objeto con todos los datos del préstamo
+            const datosPrestamo = {
+                fecha: new Date().toISOString(),
+                numero_prestamo: numPrestamo,
+                empleado: empleadoActual,
+                equipos: equiposSeleccionados,
+                responsable: document.getElementById('responsable-entrega').value,
+                tipo_prestamo: document.querySelector('input[name="tipo-prestamo"]:checked').value,
+                detalle_prestamo: document.getElementById('detalle-prestamo').value
+            };
+
+            // Convertir a JSON
+            const jsonData = JSON.stringify(datosPrestamo, null, 2);
+
+            // Crear un blob con los datos
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            // Crear un enlace para descargar el archivo
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'equipos.json';
+            document.body.appendChild(a);
+            a.click();
+
+            // Limpiar
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Evento para el botón Finalizar Préstamo
+        document.getElementById('finalizar-prestamo').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Validar que todos los campos estén completos
+            if (!empleadoActual || equiposSeleccionados.length === 0) {
+                alert('Por favor complete todos los campos antes de finalizar el préstamo.');
+                return;
+            }
+
+            // Guardar los datos en el archivo JSON
+            guardarDatosEnJSON();
+
+            // Mostrar modal de confirmación
+            document.getElementById('modal-num-prestamo').textContent = numPrestamo;
+            document.getElementById('confirm-modal').classList.remove('hidden');
+        });
+
+        // Cerrar modal
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('confirm-modal').classList.add('hidden');
+        });
+
+        // Toggle sidebar
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('-ml-64');
+        });
+
+        // Toggle dark mode
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Toggle notifications dropdown
+        document.getElementById('notification-btn').addEventListener('click', function() {
+            const dropdown = document.getElementById('notification-dropdown');
+            dropdown.classList.toggle('hidden');
+            
+            // Cerrar otros dropdowns
+            document.getElementById('user-menu-dropdown').classList.add('hidden');
+        });
+
+        // Toggle user menu dropdown
+        document.getElementById('user-menu-btn').addEventListener('click', function() {
+            const dropdown = document.getElementById('user-menu-dropdown');
+            dropdown.classList.toggle('hidden');
+            
+            // Cerrar otros dropdowns
+            document.getElementById('notification-dropdown').classList.add('hidden');
+        });
+
+        // Cerrar dropdowns al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('#notification-btn') && !event.target.closest('#notification-dropdown')) {
+                document.getElementById('notification-dropdown').classList.add('hidden');
+            }
+            
+            if (!event.target.closest('#user-menu-btn') && !event.target.closest('#user-menu-dropdown')) {
+                document.getElementById('user-menu-dropdown').classList.add('hidden');
+            }
+        });
+
+        // Inicializar fecha y número de préstamo
+        function inicializarFechaYNumero() {
+            const fechaActual = new Date();
+            const options = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+            
+            // Generar número de préstamo (fecha + hora + random)
+            const hora = fechaActual.getHours().toString().padStart(2, '0');
+            const minutos = fechaActual.getMinutes().toString().padStart(2, '0');
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            numPrestamo = `PREST-${fechaActual.getFullYear()}${(fechaActual.getMonth() + 1).toString().padStart(2, '0')}${fechaActual.getDate().toString().padStart(2, '0')}-${hora}${minutos}-${random}`;
+        }
+
+        // Inicializar al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarFechaYNumero();
+            
+            // Simular carga de datos (en un sistema real, esto sería una llamada a la API)
+            setTimeout(() => {
+                // Datos de ejemplo
+                trabajadores = [
+                    { id: 1, placa: "10722", nombre: "Juan", apellido: "Pérez", rango: "Ingeniero", departamento_id: 1 },
+                    { id: 2, placa: "10845", nombre: "María", apellido: "González", rango: "Técnico", departamento_id: 2 }
+                ];
+                
+                departamentos = [
+                    { id: 1, nombre: "TI" },
+                    { id: 2, nombre: "Operaciones" }
+                ];
+                
+                equipos = [
+                    { id: 1, serie: "HP123456789", nombre: "Laptop HP EliteBook", marca: "HP", modelo: "EliteBook 840", categoria: "Computación", subcategoria: "Laptops", estado: "Disponible" },
+                    { id: 2, serie: "SAT987654321", nombre: "Teléfono Satelital", marca: "Iridium", modelo: "9555", categoria: "Comunicación Satelital", subcategoria: "Teléfonos satelitales", estado: "Disponible" }
+                ];
+                
+                console.log("Datos simulados cargados");
+            }, 500);
+        });
+    </script>
+</body>
+</html>
