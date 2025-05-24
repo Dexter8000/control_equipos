@@ -1,0 +1,21 @@
+[
+    {
+        "id": "9139a360-3774-418f-9a5f-c92403d62500",
+        "fecha_prestamo": "2025-05-23T23:23:36.625910",
+        "responsable_entrega": "Jose Morales",
+        "responsable_devolucion": null,
+        "tipo_prestamo": "PAT",
+        "detalle_prestamo": "PAT central",
+        "equipos_prestados": [
+            {
+                "serie": "SAT-INM123",
+                "nombre": "Inmarsat IsatPhone 2",
+                "marca": "Inmarsat",
+                "modelo": "IsatPhone 2",
+                "numero_sim": "44"
+            }
+        ],
+        "estado": "Activo",
+        "usuario_registro": "admin2"
+    }
+]

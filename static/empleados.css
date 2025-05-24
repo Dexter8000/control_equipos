@@ -1,0 +1,496 @@
+/* empleados.css */
+
+/* ================== ESTILOS GENERALES ================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin: 80px 0 20px;
+}
+
+h2 {
+    color: #28a745;
+    margin: 30px 0 15px;
+}
+
+/* ================== CONTENEDORES ================== */
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* ================== BARRA DE NAVEGACIÓN ================== */
+.barra-navegacion-superior {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.barra-navegacion-superior a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: #e9ecef;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.barra-navegacion-superior a:hover {
+    background-color: #dee2e6;
+}
+
+.barra-navegacion-superior a i {
+    margin-right: 5px;
+}
+
+/* ================== CONTADOR ================== */
+.contador-trabajadores {
+    text-align: right;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2em;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+}
+
+/* ================== FORMULARIOS DE BÚSQUEDA ================== */
+.search-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.search-container h3 {
+    font-size: 1.1em;
+    color: #343a40;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.search-container form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95em;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.15);
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button:hover {
+    background-color: #0069d9;
+    transform: scale(1.03);
+}
+
+/* ================== FORMULARIO AGREGAR ================== */
+.form-agregar {
+    display: grid;
+    grid-template-columns: 80px 120px 1fr 1fr 180px auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.form-agregar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.form-agregar button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.form-agregar button:hover {
+    background-color: #218838;
+}
+
+/* ================== TABLA DE TRABAJADORES ================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+thead th {
+    background-color: #343a40;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #23272b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* ================== ACCIONES EN TABLA (BOTONES E INPUTS) ================== */
+td.table-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 6px;
+    white-space: nowrap;
+}
+
+td.table-actions form {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+td.table-actions input[type="text"] {
+    width: auto;
+    padding: 6px 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* BOTONES de ACCIÓN */
+.guardar-button,
+.eliminar-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.guardar-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.guardar-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+.eliminar-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.eliminar-button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* ================== ANCHOS PERSONALIZADOS ================== */
+.placa-col { min-width: 100px; }
+.rango-col { min-width: 150px; }
+.nombre-col { min-width: 200px; }
+.apellido-col { min-width: 200px; }
+.departamento-nombre {
+    min-width: 300px;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* ================== BOTONES DE ACCIONES MODERNOS ================== */
+.table-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.table-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    width: 40px;
+    height: 40px;
+}
+
+.table-actions button i {
+    font-size: 16px;
+}
+
+/* Botón Guardar */
+.guardar-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.guardar-button:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+/* Botón Eliminar */
+.eliminar-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.eliminar-button:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* Botón Editar (opcional) */
+.editar-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.editar-button:hover {
+    background-color: #0069d9;
+    transform: scale(1.1);
+}
+
+/* Tooltips simples */
+.table-actions button[title] {
+    position: relative;
+}
+
+.table-actions button[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: #343a40;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+.table-actions button[title]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ================== MODALES ================== */
+/* Ya tienes estilos para .modal, .modal-content, .close-button */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Añadido max-width para mejor control en pantallas grandes */
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* ================== ESTILO ESPECÍFICO PARA EL CONTENIDO JSON EN EL MODAL ================== */
+/* Este estilo aplica al área donde se muestra el JSON de departamentos */
+#departamentosData { /* Asegúrate de que este ID coincida con el del HTML */
+    white-space: pre-wrap; /* Permite que las líneas largas se envuelvan */
+    word-wrap: break-word; /* Rompe palabras si son muy largas */
+    max-height: 400px; /* Altura máxima antes de que aparezca el scroll */
+    overflow-y: auto; /* Añade scroll vertical si el contenido excede la altura máxima */
+    border: 1px solid #ccc;
+    padding: 15px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Fondo ligeramente gris */
+    border-radius: 6px; /* Bordes redondeados */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Fuente monoespacio para código/JSON */
+    font-size: 0.9em; /* Tamaño de fuente */
+    line-height: 1.5; /* Espaciado entre líneas */
+    color: #333; /* Color de texto */
+}
+/* static/empleados.css */
+
+/* ... tus otros estilos ... */
+
+
+/* ================== ESTILOS PARA LA TABLA DE DEPARTAMENTOS DENTRO DEL MODAL ================== */
+.departamentos-table {
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes de las celdas */
+    margin-top: 15px; /* Espacio superior */
+    font-size: 0.95em; /* Tamaño de fuente */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra ligera */
+}
+
+/* Estilos para las celdas de encabezado */
+.departamentos-table th {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border-bottom: 2px solid #0056b3; /* Borde inferior */
+}
+
+/* Estilos para las celdas de datos */
+.departamentos-table td {
+    padding: 10px; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Borde inferior entre filas */
+    vertical-align: top; /* Alineación vertical al principio */
+}
+
+/* Estilo para filas pares (efecto cebra) */
+.departamentos-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo gris claro */
+}
+
+/* Estilo al pasar el ratón por encima de las filas */
+.departamentos-table tbody tr:hover {
+    background-color: #e9e9e9; /* Fondo ligeramente más oscuro */
+}
+
+/* Opcional: Estilo para el div contenedor para añadir scroll si es necesario */
+#departamentosTableContainer {
+    max-height: 400px; /* Altura máxima antes del scroll */
+    overflow-y: auto; /* Añadir barra de scroll vertical si el contenido es demasiado alto */
+    margin-top: 15px; /* Espacio superior */
+}
+
+/* ... el resto de tus otros estilos ... */
+
+
+/* ================== OTROS ESTILOS EXISTENTES ================== */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    margin-right: 5px;
+}
+
+.acciones {
+    display: none;
+}
+.acciones-en-linea {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.acciones-en-linea form {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+}

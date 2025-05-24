@@ -1,0 +1,2900 @@
+[
+    {
+        "id": "EMP001",
+        "placa": "10722",
+        "rango": "SUBCOMISIONADO",
+        "nombre": "JHONATHAN INDOMAR",
+        "apellido": "ALI SANCHEZ",
+        "departamento_id": "DEP002",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP002",
+        "placa": "80040",
+        "rango": "SUBCOMISIONADO",
+        "nombre": "LEE",
+        "apellido": "BAZER MELENDEZ",
+        "departamento_id": "DEP002",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP003",
+        "placa": "80056",
+        "rango": "SUBCOMISIONADO",
+        "nombre": "LUIS ALBERTO",
+        "apellido": "HENRIQUEZ LASSO",
+        "departamento_id": "DEP002",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP004",
+        "placa": "83946",
+        "rango": "GUARDIA",
+        "nombre": "ALVARO",
+        "apellido": "ORTEGA BEJERANO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP005",
+        "placa": "83939",
+        "rango": "GUARDIA",
+        "nombre": "BLADIMIR",
+        "apellido": "RODRIGUEZ SANCHEZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP006",
+        "placa": "83986",
+        "rango": "GUARDIA",
+        "nombre": "CESAR ELIAS",
+        "apellido": "MUÑOZ GARCIA",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP007",
+        "placa": "83942",
+        "rango": "GUARDIA",
+        "nombre": "CHRISTIAN JOEL",
+        "apellido": "PEREZ  GARCIA",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP008",
+        "placa": "83847",
+        "rango": "GUARDIA",
+        "nombre": "DANGELO JAHIR",
+        "apellido": "MENDOZA SALAS",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP009",
+        "placa": "83895",
+        "rango": "GUARDIA",
+        "nombre": "DARIEL",
+        "apellido": "SMITH NICHI",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP010",
+        "placa": "83885",
+        "rango": "GUARDIA",
+        "nombre": "DELBIS ABDIEL",
+        "apellido": "QUIROZ CASTILLO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP011",
+        "placa": "83834",
+        "rango": "GUARDIA",
+        "nombre": "DENILSON YONATHAN",
+        "apellido": "SALINA RODRIGUEZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP012",
+        "placa": "83817",
+        "rango": "GUARDIA",
+        "nombre": "EDWIN RONALDO",
+        "apellido": "SAMUDIO SIERRA",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP013",
+        "placa": "83978",
+        "rango": "GUARDIA",
+        "nombre": "ELVIS LESDIEL",
+        "apellido": "SALINAS PRADO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP014",
+        "placa": "83874",
+        "rango": "GUARDIA",
+        "nombre": "FRANCISCO JOHAN",
+        "apellido": "SANCHEZ AGUILAR",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP015",
+        "placa": "83872",
+        "rango": "GUARDIA",
+        "nombre": "JAHIR AMETH",
+        "apellido": "SERRANO MARTINEZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP016",
+        "placa": "83832",
+        "rango": "GUARDIA",
+        "nombre": "JAIR ANTONIO",
+        "apellido": "VALENCIA PEREA",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP017",
+        "placa": "83829",
+        "rango": "GUARDIA",
+        "nombre": "JOEL JESUS",
+        "apellido": "SANTAMARIA",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP018",
+        "placa": "83851",
+        "rango": "GUARDIA",
+        "nombre": "JOEL OLMEDO",
+        "apellido": "DELGADO CORONADO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP019",
+        "placa": "83810",
+        "rango": "GUARDIA",
+        "nombre": "JOSE MANUEL",
+        "apellido": "CRUZ RODRIGUEZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP020",
+        "placa": "83813",
+        "rango": "GUARDIA",
+        "nombre": "JOSEPT JEREMIAS",
+        "apellido": "TOVAR DIAZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP021",
+        "placa": "83871",
+        "rango": "GUARDIA",
+        "nombre": "JUAN CARLOS",
+        "apellido": "MARIN PIMENTEL",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP022",
+        "placa": "83989",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN JOSEPH",
+        "apellido": "ALONZO CORTEZ",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP023",
+        "placa": "83811",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN RONALD",
+        "apellido": "SMITH JUSTAVINO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP024",
+        "placa": "83926",
+        "rango": "GUARDIA",
+        "nombre": "LUIS ALBERTO",
+        "apellido": "MADERA SOLANO",
+        "departamento_id": "DEP015",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP025",
+        "placa": "84004",
+        "rango": "GUARDIA",
+        "nombre": "LUIS ANGEL",
+        "apellido": "SOLIS RODRIGUEZ",
+        "departamento_id": "DEP001",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP026",
+        "placa": "82380",
+        "rango": "SUBTENIENTE",
+        "nombre": "MILAGROS DEL CARMEN",
+        "apellido": "URRIOLA PALACIO",
+        "departamento_id": "DEP001",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP027",
+        "placa": "80687",
+        "rango": "SUBTENIENTE",
+        "nombre": "RILIVETH RISMEL",
+        "apellido": "RENTERIA CUESTA",
+        "departamento_id": "DEP001",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP028",
+        "placa": "81504",
+        "rango": "CABO 1RO.",
+        "nombre": "JACKELINE GISELLE",
+        "apellido": "GIL",
+        "departamento_id": "DEP001",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP029",
+        "placa": "83084",
+        "rango": "GUARDIA",
+        "nombre": "ALTAGRACIA LISBETH",
+        "apellido": "POSE VELOZ",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP030",
+        "placa": "82964",
+        "rango": "GUARDIA",
+        "nombre": "YAMILETH BELÉN",
+        "apellido": "SÁNCHEZ SÁNCHEZ",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP031",
+        "placa": "70846",
+        "rango": "TENIENTE",
+        "nombre": "CRISTHIAN LEONEL",
+        "apellido": "FUENTES MORENO",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP032",
+        "placa": "81387",
+        "rango": "SUBTENIENTE",
+        "nombre": "RICARDO ATENCIO",
+        "apellido": "OBREGON VANEGAS",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP033",
+        "placa": "80510",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "SECUNDINO",
+        "apellido": "BARAHONA RAMOS",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP034",
+        "placa": "71127",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DAYRA MABEL",
+        "apellido": "CISNEROS RODRIGUEZ",
+        "departamento_id": "DEP003",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP035",
+        "placa": "82312",
+        "rango": "CABO 2DO.",
+        "nombre": "ASHLIN YASSIETH",
+        "apellido": "ROVIRA ARA",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP036",
+        "placa": "83148",
+        "rango": "GUARDIA",
+        "nombre": "ANGIENELLYS KARINA",
+        "apellido": "CORTÉS",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP037",
+        "placa": "81306",
+        "rango": "CAPITAN",
+        "nombre": "ISRRAEL JESUS",
+        "apellido": "CAMARGO PERALTA",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP038",
+        "placa": "81350",
+        "rango": "CAPITAN",
+        "nombre": "ROBERTO",
+        "apellido": "ALCOCER RODRIGUEZ",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP039",
+        "placa": "70706",
+        "rango": "TENIENTE",
+        "nombre": "RICARDO ALBERTO",
+        "apellido": "MARENCO  GONZALEZ",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP040",
+        "placa": "71400",
+        "rango": "CABO 1RO.",
+        "nombre": "HECTOR DARIO",
+        "apellido": "CEDEÑO SANCHEZ",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP041",
+        "placa": "83095",
+        "rango": "GUARDIA",
+        "nombre": "EDWIN ABDIEL",
+        "apellido": "MENDOZA GARCIA",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP042",
+        "placa": "83429",
+        "rango": "GUARDIA",
+        "nombre": "JOEL",
+        "apellido": "GARCIA",
+        "departamento_id": "DEP004",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP043",
+        "placa": "83167",
+        "rango": "GUARDIA",
+        "nombre": "JULIAN  ENRIQUE",
+        "apellido": "RODRIGUEZ  GONZALEZ",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP044",
+        "placa": "83131",
+        "rango": "GUARDIA",
+        "nombre": "RANZANYANI EMIR",
+        "apellido": "DOUGLAS TORRES",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP045",
+        "placa": "70606",
+        "rango": "MAYOR",
+        "nombre": "MIGUEL ANGEL",
+        "apellido": "MONTENEGRO AYALA",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP046",
+        "placa": "80041",
+        "rango": "MAYOR",
+        "nombre": "SAMUEL",
+        "apellido": "JEAN PIERRE",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP047",
+        "placa": "71746",
+        "rango": "SUBTENIENTE",
+        "nombre": "JEAN CARLOS",
+        "apellido": "ARROCHA GARCIA",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP048",
+        "placa": "81068",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JOSE ANGEL",
+        "apellido": "BARRIOS TUÑON",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP049",
+        "placa": "71288",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "NORBERTO",
+        "apellido": "VALENCIA GARCIA",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP050",
+        "placa": "81990",
+        "rango": "CABO 1RO.",
+        "nombre": "JOSE GUILLERMO",
+        "apellido": "CARVAJAL SANCHEZ",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP051",
+        "placa": "80501",
+        "rango": "CABO 1RO.",
+        "nombre": "MICHAEL",
+        "apellido": "GONZALEZ",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP052",
+        "placa": "81848",
+        "rango": "CABO 1RO.",
+        "nombre": "ROLANDO JAVIER",
+        "apellido": "PEREZ SANCHEZ",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP053",
+        "placa": "82816",
+        "rango": "CABO 2DO.",
+        "nombre": "DANIEL ENRIQUE",
+        "apellido": "SANJUR MEJIA",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP054",
+        "placa": "82835",
+        "rango": "CABO 2DO.",
+        "nombre": "JESÚS",
+        "apellido": "RIVAS",
+        "departamento_id": "DEP005",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP055",
+        "placa": "82739",
+        "rango": "CABO 2DO.",
+        "nombre": "MOISÉS",
+        "apellido": "ALVEO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP056",
+        "placa": "83142",
+        "rango": "GUARDIA",
+        "nombre": "ALBIS ALEXIS",
+        "apellido": "GIL",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP057",
+        "placa": "70577",
+        "rango": "MAYOR",
+        "nombre": "NICHOLAS ALBERTO",
+        "apellido": "PINZON ZILVA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP058",
+        "placa": "71784",
+        "rango": "TENIENTE",
+        "nombre": "CARLOS ALBERTO",
+        "apellido": "CHONG VEGA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP059",
+        "placa": "80193",
+        "rango": "TENIENTE",
+        "nombre": "SIMON ALEJANDRO",
+        "apellido": "HENRIQUEZ  MERA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP060",
+        "placa": "70844",
+        "rango": "SUBTENIENTE",
+        "nombre": "ANGEL",
+        "apellido": "ARJONA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP061",
+        "placa": "80565",
+        "rango": "SUBTENIENTE",
+        "nombre": "EVELYN JAZMIN",
+        "apellido": "CAMARENA RODRIGUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP062",
+        "placa": "81944",
+        "rango": "SUBTENIENTE",
+        "nombre": "JESÚS ALBERTO",
+        "apellido": "MORÁN OBANDO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP063",
+        "placa": "70871",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "JOSE ANGEL",
+        "apellido": "MARTINEZ CACERES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP064",
+        "placa": "81077",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "AGUSTIN",
+        "apellido": "GONZALEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP065",
+        "placa": "81240",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ALLAM JAVIER",
+        "apellido": "CASTILLO SOLANO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP066",
+        "placa": "81090",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "CHARLYS XABIER",
+        "apellido": "SANCHEZ  VALENCIA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP067",
+        "placa": "71328",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DARINEL",
+        "apellido": "SANAPI T.",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP068",
+        "placa": "81079",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DAVID",
+        "apellido": "ESPINOSA AVILA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP069",
+        "placa": "82336",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "Eduardo Gregory",
+        "apellido": "Dominguez Martinez",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP070",
+        "placa": "71234",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JOSE LUIS",
+        "apellido": "RODRIGUEZ GONZALEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP071",
+        "placa": "71242",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JUAN ANTONIO",
+        "apellido": "RODRIGUEZ PADILLA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP072",
+        "placa": "71318",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JULIO",
+        "apellido": "HERAZO HIDALGO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP073",
+        "placa": "71252",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "LEIDYS",
+        "apellido": "MOJICA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP074",
+        "placa": "81086",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "LEONEL ANTONIO",
+        "apellido": "RODRIGUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP075",
+        "placa": "71292",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "OLIVER ALEXANDER",
+        "apellido": "COLLYMORE PAYNE",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP076",
+        "placa": "80544",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "REYES ELIECER",
+        "apellido": "JIMENEZ MORALES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP077",
+        "placa": "81093",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "RUBEN JAVIER",
+        "apellido": "TROESTCH PINEDA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP078",
+        "placa": "82004",
+        "rango": "CABO 1RO.",
+        "nombre": "ABAD ANTONIO",
+        "apellido": "DIAZ SANTOS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP079",
+        "placa": "71412",
+        "rango": "CABO 1RO.",
+        "nombre": "AGUSTIN ABDIEL",
+        "apellido": "ARROYO FLORES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP080",
+        "placa": "82327",
+        "rango": "CABO 1RO.",
+        "nombre": "ALBERT JOEL",
+        "apellido": "GARCIA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP081",
+        "placa": "82043",
+        "rango": "CABO 1RO.",
+        "nombre": "ASMIR OVIDIO",
+        "apellido": "MELA NAVAS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP082",
+        "placa": "80446",
+        "rango": "CABO 1RO.",
+        "nombre": "CESAR RAUL",
+        "apellido": "FERNANDEZ MARTINEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP083",
+        "placa": "82042",
+        "rango": "CABO 1RO.",
+        "nombre": "EDGAR",
+        "apellido": "MARTINEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP084",
+        "placa": "82040",
+        "rango": "CABO 1RO.",
+        "nombre": "ELVIS GEOVANNY",
+        "apellido": "MARIANO BEJERANO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP085",
+        "placa": "81871",
+        "rango": "CABO 1RO.",
+        "nombre": "JAIME JESUS",
+        "apellido": "VASQUEZ RODRIGUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP086",
+        "placa": "82068",
+        "rango": "CABO 1RO.",
+        "nombre": "JAVIER ANTONIO",
+        "apellido": "RAMOS GONZALEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP087",
+        "placa": "82052",
+        "rango": "CABO 1RO.",
+        "nombre": "JEAN CARLOS",
+        "apellido": "MUÑOZ CAMPOS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP088",
+        "placa": "81980",
+        "rango": "CABO 1RO.",
+        "nombre": "JHONSET LORENZO",
+        "apellido": "BATISTA SAMANIEGO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP089",
+        "placa": "82130",
+        "rango": "CABO 1RO.",
+        "nombre": "JONATHAN ABEL",
+        "apellido": "LOPEZ ARENA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP090",
+        "placa": "81888",
+        "rango": "CABO 1RO.",
+        "nombre": "JORGE LUIS",
+        "apellido": "RIVAS MAGALLON",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP091",
+        "placa": "70686",
+        "rango": "CABO 1RO.",
+        "nombre": "JOSE DE LOS SANTOS",
+        "apellido": "AGUIRRE BAKER",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP092",
+        "placa": "81352",
+        "rango": "CABO 1RO.",
+        "nombre": "JUAN ALFREDO",
+        "apellido": "HERNANDEZ DE LEON",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP093",
+        "placa": "80131",
+        "rango": "CABO 1RO.",
+        "nombre": "LUIS ALBERTO",
+        "apellido": "CAMPOS CARDENAS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP094",
+        "placa": "81972",
+        "rango": "CABO 1RO.",
+        "nombre": "LUIS MIGUEL",
+        "apellido": "AGUILAR FRAGUEIRO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP095",
+        "placa": "81666",
+        "rango": "CABO 1RO.",
+        "nombre": "NOE",
+        "apellido": "QUIROZ VEGA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP096",
+        "placa": "81876",
+        "rango": "CABO 1RO.",
+        "nombre": "RAMSES YOSIEL",
+        "apellido": "VERGARA TEJADA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP097",
+        "placa": "71504",
+        "rango": "CABO 1RO.",
+        "nombre": "ROBERTO CLAVES",
+        "apellido": "BOYCE RODRIGUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP098",
+        "placa": "81295",
+        "rango": "CABO 1RO.",
+        "nombre": "RONALD",
+        "apellido": "GONZALEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP099",
+        "placa": "82045",
+        "rango": "CABO 1RO.",
+        "nombre": "ROUDY ELIECER",
+        "apellido": "MENDOZA DE FRIAS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP100",
+        "placa": "81976",
+        "rango": "CABO 1RO.",
+        "nombre": "SAKS ANGELO",
+        "apellido": "ARIAS GONZALEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP101",
+        "placa": "80864",
+        "rango": "CABO 2DO.",
+        "nombre": "ANTHONY REGNER",
+        "apellido": "MORALES MIRANDA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP102",
+        "placa": "71470",
+        "rango": "CABO 2DO.",
+        "nombre": "ARIEL ALEXIS",
+        "apellido": "ARAYA PINEDA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP103",
+        "placa": "81018",
+        "rango": "CABO 2DO.",
+        "nombre": "BORIS ORIEL",
+        "apellido": "PEÑA ORTIZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP104",
+        "placa": "82259",
+        "rango": "CABO 2DO.",
+        "nombre": "DANIEL ALBERTO",
+        "apellido": "ROBLES RIVERA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP105",
+        "placa": "82242",
+        "rango": "CABO 2DO.",
+        "nombre": "DAVID ABDIEL",
+        "apellido": "PINTO QUINTERO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP106",
+        "placa": "82780",
+        "rango": "CABO 2DO.",
+        "nombre": "DEIVIS",
+        "apellido": "MÓJICA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP107",
+        "placa": "19397",
+        "rango": "CABO 2DO.",
+        "nombre": "DIOGENES",
+        "apellido": "CAMPOS GONZÁLEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP108",
+        "placa": "81571",
+        "rango": "CABO 2DO.",
+        "nombre": "EDUARDO ENRIQUE",
+        "apellido": "HERNANDEZ MORENO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP109",
+        "placa": "82814",
+        "rango": "CABO 2DO.",
+        "nombre": "EDWARD",
+        "apellido": "SÁNCHEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP110",
+        "placa": "80629",
+        "rango": "CABO 2DO.",
+        "nombre": "ELIMELEC",
+        "apellido": "CALVO ALFARO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP111",
+        "placa": "82612",
+        "rango": "CABO 2DO.",
+        "nombre": "HUMBERTO R.",
+        "apellido": "MORAN N.",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP112",
+        "placa": "81443",
+        "rango": "CABO 2DO.",
+        "nombre": "JOSE LUIS",
+        "apellido": "GUADAMUZ VASQUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP113",
+        "placa": "80650",
+        "rango": "CABO 2DO.",
+        "nombre": "JOSE LUIS",
+        "apellido": "RODRIGUEZ PINTO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP114",
+        "placa": "82791",
+        "rango": "CABO 2DO.",
+        "nombre": "LUIS",
+        "apellido": "PARDO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP115",
+        "placa": "82201",
+        "rango": "CABO 2DO.",
+        "nombre": "LUIS ANTONIO",
+        "apellido": "NUÑEZ ARIAS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP116",
+        "placa": "70599",
+        "rango": "CABO 2DO.",
+        "nombre": "MOISES ALBERTO",
+        "apellido": "GOMEZ PIMENTEL",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP117",
+        "placa": "81104",
+        "rango": "CABO 2DO.",
+        "nombre": "NIDIA ESTHER",
+        "apellido": "SALAZAR RODRIGUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP118",
+        "placa": "28005",
+        "rango": "CABO 2DO.",
+        "nombre": "ORLANDO",
+        "apellido": "CONCEPCIÓN VÁSQUEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP119",
+        "placa": "81869",
+        "rango": "CABO 2DO.",
+        "nombre": "RAMON",
+        "apellido": "PADILLA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP120",
+        "placa": "81516",
+        "rango": "CABO 2DO.",
+        "nombre": "ROBBINSON DISNEY",
+        "apellido": "GUTIERREZ DIAZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP121",
+        "placa": "27992",
+        "rango": "CABO 2DO.",
+        "nombre": "ROIMI ROYNEL",
+        "apellido": "RODRIGUEZ RIVERA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP122",
+        "placa": "83081",
+        "rango": "GUARDIA",
+        "nombre": "ABEL ANTONIO",
+        "apellido": "GONZÁLEZ ROJAS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP123",
+        "placa": "70966",
+        "rango": "GUARDIA",
+        "nombre": "ALEXANDER ALFREDO",
+        "apellido": "FERNÁNDEZ  HIDALGO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP124",
+        "placa": "83508",
+        "rango": "GUARDIA",
+        "nombre": "ANEL",
+        "apellido": "CÁCERES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP125",
+        "placa": "83299",
+        "rango": "GUARDIA",
+        "nombre": "ÁNGEL",
+        "apellido": "DEL CID",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP126",
+        "placa": "83332",
+        "rango": "GUARDIA",
+        "nombre": "ARAMIS",
+        "apellido": "FRANCO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP127",
+        "placa": "81901",
+        "rango": "GUARDIA",
+        "nombre": "CARLOS ALEJANDRO",
+        "apellido": "VALENCIA  MENDOZA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP128",
+        "placa": "83374",
+        "rango": "GUARDIA",
+        "nombre": "DEIBY",
+        "apellido": "SALDAÑA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP129",
+        "placa": "80806",
+        "rango": "GUARDIA",
+        "nombre": "DiLAN ABEL",
+        "apellido": "CASTILLO ARRACERA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP130",
+        "placa": "81885",
+        "rango": "GUARDIA",
+        "nombre": "EDWIN JOSE",
+        "apellido": "FRANCO PINEDA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP131",
+        "placa": "83658",
+        "rango": "GUARDIA",
+        "nombre": "ERICK",
+        "apellido": "GUERRA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP132",
+        "placa": "82933",
+        "rango": "GUARDIA",
+        "nombre": "ERIKA MASSIEL",
+        "apellido": "NAVARRO GONZÁLEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP133",
+        "placa": "83494",
+        "rango": "GUARDIA",
+        "nombre": "FELIX",
+        "apellido": "ROSALES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP134",
+        "placa": "83158",
+        "rango": "GUARDIA",
+        "nombre": "FRANCISCO ALBERTO",
+        "apellido": "IBAÑEZ CHANIS",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP135",
+        "placa": "82952",
+        "rango": "GUARDIA",
+        "nombre": "JOSÉ  LUIS",
+        "apellido": "FÁBREGA  JIMÉNEZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP136",
+        "placa": "83165",
+        "rango": "GUARDIA",
+        "nombre": "JOSE ANGEL",
+        "apellido": "SANCHEZ HIDALGO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP137",
+        "placa": "83119",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN ALEXIS",
+        "apellido": "CORREA MENESES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP138",
+        "placa": "83168",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN WIGBERTO",
+        "apellido": "CALLES CANTO",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP139",
+        "placa": "83122",
+        "rango": "GUARDIA",
+        "nombre": "MIGUEL ANGEL",
+        "apellido": "RODRIGUEZ PEREZ",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP140",
+        "placa": "83173",
+        "rango": "GUARDIA",
+        "nombre": "MIGUEL ANGEL",
+        "apellido": "FORERO TORRES",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP141",
+        "placa": "83130",
+        "rango": "GUARDIA",
+        "nombre": "RACHID  DELMARET",
+        "apellido": "BELEÑO ALMANZA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP142",
+        "placa": "83183",
+        "rango": "GUARDIA",
+        "nombre": "VICTOR ADRIAN",
+        "apellido": "VALENCIA MENDOZA",
+        "departamento_id": "DEP006",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP143",
+        "placa": "83079",
+        "rango": "GUARDIA",
+        "nombre": "WILFREDO ALEXANDER",
+        "apellido": "PIMENTEL VERGARA",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP144",
+        "placa": "83660",
+        "rango": "GUARDIA",
+        "nombre": "YHAIR",
+        "apellido": "ALMENGOR",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP145",
+        "placa": "80868",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "MANUEL  JESUS",
+        "apellido": "SANJUR  GONZALEZ",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP146",
+        "placa": "81094",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ANDRES ORIEL",
+        "apellido": "VALDERRAMA DIAZ",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP147",
+        "placa": "81128",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JUAN BOLIVAR",
+        "apellido": "RAMOS",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP148",
+        "placa": "82150",
+        "rango": "CABO 1RO.",
+        "nombre": "CARLOS IVAN",
+        "apellido": "ROCHA SERRACIN",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP149",
+        "placa": "82063",
+        "rango": "CABO 1RO.",
+        "nombre": "REYNALDO ANTONIO",
+        "apellido": "PINZON GONZALEZ",
+        "departamento_id": "DEP007",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP150",
+        "placa": "83097",
+        "rango": "GUARDIA",
+        "nombre": "EDWIN ANTONIO",
+        "apellido": "NORIEGA CABALLERO",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP151",
+        "placa": "83278",
+        "rango": "GUARDIA",
+        "nombre": "JOSE",
+        "apellido": "MORALES",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP152",
+        "placa": "71358",
+        "rango": "CAPITAN",
+        "nombre": "GIOVANNY EDEN",
+        "apellido": "SOTO AGUILAR",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP153",
+        "placa": "70812",
+        "rango": "TENIENTE",
+        "nombre": "ABDIEL J.",
+        "apellido": "GUERRERO Z.",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP154",
+        "placa": "80974",
+        "rango": "TENIENTE",
+        "nombre": "CARLOS LORAN",
+        "apellido": "GLEN LACHAPEL",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP155",
+        "placa": "80204",
+        "rango": "TENIENTE",
+        "nombre": "ENRIQUE",
+        "apellido": "BATISTA RODRIGUEZ",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP156",
+        "placa": "80530",
+        "rango": "SUBTENIENTE",
+        "nombre": "LUIS ALBERTO",
+        "apellido": "BATISTA BANDERA",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP157",
+        "placa": "80531",
+        "rango": "SUBTENIENTE",
+        "nombre": "RICAUTER JAVIER",
+        "apellido": "HERRERA SANCHEZ",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP158",
+        "placa": "80848",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "JEAN CARLOS",
+        "apellido": "ROMAN ATENCIO",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP159",
+        "placa": "71120",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DANIEL",
+        "apellido": "CISNEROS RODRIGUEZ",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP160",
+        "placa": "71478",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "GARRY NORIEL",
+        "apellido": "GONZALEZ GONZALEZ",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP161",
+        "placa": "71465",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "VICTOR MANUEL",
+        "apellido": "DUARTE CASTILLO",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP162",
+        "placa": "71760",
+        "rango": "CABO 1RO.",
+        "nombre": "Christian Josue",
+        "apellido": "Fung Rodriguez",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP163",
+        "placa": "82340",
+        "rango": "CABO 1RO.",
+        "nombre": "Gabriel Anel",
+        "apellido": "Ruiz Pinilla",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP164",
+        "placa": "70786",
+        "rango": "CABO 1RO.",
+        "nombre": "GABRIEL ANTONIO",
+        "apellido": "BARAHONA BEST",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP165",
+        "placa": "82027",
+        "rango": "CABO 1RO.",
+        "nombre": "JORMAN JOSE",
+        "apellido": "HERNANDEZ ROJAS",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP166",
+        "placa": "81823",
+        "rango": "CABO 1RO.",
+        "nombre": "LUIS FELIPE",
+        "apellido": "VILLARREAL BLIS",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP167",
+        "placa": "81982",
+        "rango": "CABO 1RO.",
+        "nombre": "THAYR THOMAS",
+        "apellido": "BETHANCOURT TORRES",
+        "departamento_id": "DEP008",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP168",
+        "placa": "81897",
+        "rango": "CABO 1RO.",
+        "nombre": "WILLIAM ALEJANDRO",
+        "apellido": "RODRIGUEZ MARTINEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP169",
+        "placa": "83334",
+        "rango": "GUARDIA",
+        "nombre": "KENETH",
+        "apellido": "NUÑEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP170",
+        "placa": "81376",
+        "rango": "CAPITAN",
+        "nombre": "JEAN CARLOS",
+        "apellido": "JIMENEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP171",
+        "placa": "70886",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "HECTOR MANUEL",
+        "apellido": "BARRÍA RODRIGUEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP172",
+        "placa": "71194",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JESUS EMANUEL",
+        "apellido": "AGUIRRE ORTEGA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP173",
+        "placa": "81534",
+        "rango": "CABO 1RO.",
+        "nombre": "DANIEL ANTONIO",
+        "apellido": "PINZON MENDEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP174",
+        "placa": "81485",
+        "rango": "CABO 1RO.",
+        "nombre": "FIDEL ANGEL",
+        "apellido": "SALDAÑA ARENILLA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP175",
+        "placa": "82032",
+        "rango": "CABO 1RO.",
+        "nombre": "GUMERCINDO",
+        "apellido": "JIMÉNEZ DIAZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP176",
+        "placa": "71716",
+        "rango": "CABO 1RO.",
+        "nombre": "JAHLEEL",
+        "apellido": "RODRIGUEZ CABRERA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP177",
+        "placa": "81602",
+        "rango": "CABO 1RO.",
+        "nombre": "JOSE WILLIAM",
+        "apellido": "FLORES ATENCIO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP178",
+        "placa": "82352",
+        "rango": "CABO 1RO.",
+        "nombre": "KENEDID",
+        "apellido": "RODRIGUEZ DELGADO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP179",
+        "placa": "71491",
+        "rango": "CABO 1RO.",
+        "nombre": "PABLO",
+        "apellido": "ARROCHA RODRIGUEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP180",
+        "placa": "71685",
+        "rango": "CABO 1RO.",
+        "nombre": "RAUL ANTONIO",
+        "apellido": "MIRANDA QUIROZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP181",
+        "placa": "82362",
+        "rango": "CABO 1RO.",
+        "nombre": "Raul Josue",
+        "apellido": "Atencio Aviles",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP182",
+        "placa": "82154",
+        "rango": "CABO 1RO.",
+        "nombre": "TOMAS ANTONIO",
+        "apellido": "RODRIGUEZ GOMEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP183",
+        "placa": "70548",
+        "rango": "CABO 2DO.",
+        "nombre": "BAUDILIO ANTONIO",
+        "apellido": "DOMINGUEZ MORENO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP184",
+        "placa": "82745",
+        "rango": "CABO 2DO.",
+        "nombre": "DANIEL",
+        "apellido": "BERNAL",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP185",
+        "placa": "82743",
+        "rango": "CABO 2DO.",
+        "nombre": "KATHERIN  KATHIUSCA",
+        "apellido": "AYALA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP186",
+        "placa": "82569",
+        "rango": "CABO 2DO.",
+        "nombre": "LUIS OLMEDO",
+        "apellido": "SANCHEZ BATISTA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP187",
+        "placa": "82368",
+        "rango": "CABO 2DO.",
+        "nombre": "MOISES ELIAS",
+        "apellido": "SANTOS CRUZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP188",
+        "placa": "82183",
+        "rango": "CABO 2DO.",
+        "nombre": "OMAR ALEXIS",
+        "apellido": "MIRANDA PALACIOS",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP189",
+        "placa": "70579",
+        "rango": "CABO 2DO.",
+        "nombre": "OSVALDO ERNESTO",
+        "apellido": "GARCIA RAMOS",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP190",
+        "placa": "83295",
+        "rango": "GUARDIA",
+        "nombre": "ANTONY",
+        "apellido": "DUQUE",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP191",
+        "placa": "83325",
+        "rango": "GUARDIA",
+        "nombre": "BERNARDINO",
+        "apellido": "CASTILLO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP192",
+        "placa": "83447",
+        "rango": "GUARDIA",
+        "nombre": "GUILLERMO",
+        "apellido": "LORENZO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP193",
+        "placa": "82955",
+        "rango": "GUARDIA",
+        "nombre": "JAVIER JOSÉ",
+        "apellido": "RODRÍGUEZ GUIRAUD",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP194",
+        "placa": "83408",
+        "rango": "GUARDIA",
+        "nombre": "JOSÉ",
+        "apellido": "DOMINGUEZ",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP195",
+        "placa": "83451",
+        "rango": "GUARDIA",
+        "nombre": "JOSUE",
+        "apellido": "CORTÉS",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP196",
+        "placa": "82978",
+        "rango": "GUARDIA",
+        "nombre": "KENDAR JOSSUE",
+        "apellido": "CAMAÑO MELA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP197",
+        "placa": "83608",
+        "rango": "GUARDIA",
+        "nombre": "MARCIAL",
+        "apellido": "CARABALLO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP198",
+        "placa": "83420",
+        "rango": "GUARDIA",
+        "nombre": "MICHELLE",
+        "apellido": "MEDINA",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP199",
+        "placa": "83268",
+        "rango": "GUARDIA",
+        "nombre": "ROBERTO",
+        "apellido": "ALVARADO",
+        "departamento_id": "DEP009",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP200",
+        "placa": "80125",
+        "rango": "TENIENTE",
+        "nombre": "ALBERTO ENRIQUE",
+        "apellido": "LOPEZ PALACIOS",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP201",
+        "placa": "81953",
+        "rango": "TENIENTE",
+        "nombre": "MARCOS JOEL",
+        "apellido": "CAMARENA GALVEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP202",
+        "placa": "70853",
+        "rango": "SUBTENIENTE",
+        "nombre": "BASILIO",
+        "apellido": "PINZON LOPEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP203",
+        "placa": "70918",
+        "rango": "SUBTENIENTE",
+        "nombre": "JORGE ANTONIO",
+        "apellido": "BOLIVAR AVECILLA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP204",
+        "placa": "70855",
+        "rango": "SUBTENIENTE",
+        "nombre": "WILFREDO FRANCINI",
+        "apellido": "MARTINEZ MARTINEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP205",
+        "placa": "80473",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "ABDIEL ANTONIO",
+        "apellido": "DE LEON LOPEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP206",
+        "placa": "70914",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "JAIME ALBERTO",
+        "apellido": "FLORES PEREZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP207",
+        "placa": "71371",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ALAN ABDIEL",
+        "apellido": "CASTILLO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP208",
+        "placa": "80617",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "EDUARDO MIGUEL",
+        "apellido": "ASPRILLA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP209",
+        "placa": "80603",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ELIAS M.",
+        "apellido": "CASTILLO  C.",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP210",
+        "placa": "71177",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "GUILLERMO LUIS",
+        "apellido": "CASTILLO CARRASCO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP211",
+        "placa": "80979",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "HUMBERTO DIANEL",
+        "apellido": "OBANDO MORENO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP212",
+        "placa": "71230",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "JOSE EDUARDO",
+        "apellido": "ARCO ALABARCA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP213",
+        "placa": "82104",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "VICTOR GABRIEL",
+        "apellido": "BETHANCOURT SANCHEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP214",
+        "placa": "81053",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "YAMIL ANTUAA",
+        "apellido": "MULLINGS VERGARA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP215",
+        "placa": "81905",
+        "rango": "CABO 1RO.",
+        "nombre": "AMETH DANIEL",
+        "apellido": "SANCHEZ CHAVERRA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP216",
+        "placa": "81599",
+        "rango": "CABO 1RO.",
+        "nombre": "AMILKAR JAVIER",
+        "apellido": "DIAZ GARIBALDI",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP217",
+        "placa": "71641",
+        "rango": "CABO 1RO.",
+        "nombre": "CHRISTOPHER ROBY",
+        "apellido": "ESCOBAR CAMPOS",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP218",
+        "placa": "81617",
+        "rango": "CABO 1RO.",
+        "nombre": "IRVING ANDRES",
+        "apellido": "JURADO  SANJUR",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP219",
+        "placa": "81830",
+        "rango": "CABO 1RO.",
+        "nombre": "JOSE A",
+        "apellido": "MELA PIMENTEL",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP220",
+        "placa": "70659",
+        "rango": "CABO 1RO.",
+        "nombre": "JOSE LUIS",
+        "apellido": "CAEZ SERRANO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP221",
+        "placa": "81067",
+        "rango": "CABO 1RO.",
+        "nombre": "MANUEL RODOLFO",
+        "apellido": "ARROYO ORTEGA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP222",
+        "placa": "13652",
+        "rango": "CABO 1RO.",
+        "nombre": "MELVIN ALEXANDER",
+        "apellido": "ALAIN LOPEZ",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP223",
+        "placa": "81601",
+        "rango": "CABO 1RO.",
+        "nombre": "OSCAR JAVIER",
+        "apellido": "ESPINOSA CASERES",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP224",
+        "placa": "71639",
+        "rango": "CABO 1RO.",
+        "nombre": "VICTOR MANUEL",
+        "apellido": "DE GRACIA TAMALLO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP225",
+        "placa": "81611",
+        "rango": "CABO 1RO.",
+        "nombre": "YUNIER AMADO",
+        "apellido": "GONZALEZ RAMOS",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP226",
+        "placa": "81123",
+        "rango": "CABO 2DO.",
+        "nombre": "DAVID SAMUEL",
+        "apellido": "SANCHEZ CARREÑO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP227",
+        "placa": "70648",
+        "rango": "CABO 2DO.",
+        "nombre": "ISIDRO ERIC",
+        "apellido": "GONZALEZ GUERRA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP228",
+        "placa": "80257",
+        "rango": "CABO 2DO.",
+        "nombre": "ROLANDO ORIEL",
+        "apellido": "BEDOYA RIVAS",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP229",
+        "placa": "83599",
+        "rango": "GUARDIA",
+        "nombre": "DANIEL",
+        "apellido": "ALMANZA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP230",
+        "placa": "83594",
+        "rango": "GUARDIA",
+        "nombre": "EDWIN",
+        "apellido": "NORIEGA",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP231",
+        "placa": "83499",
+        "rango": "GUARDIA",
+        "nombre": "MARCOS",
+        "apellido": "NAVARRO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP232",
+        "placa": "83521",
+        "rango": "GUARDIA",
+        "nombre": "YESSICA",
+        "apellido": "ABREGO",
+        "departamento_id": "DEP010",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP233",
+        "placa": "81237",
+        "rango": "CAPITAN",
+        "nombre": "RIGOBERTO ISAAC",
+        "apellido": "REYES AGUILAR",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP234",
+        "placa": "80293",
+        "rango": "TENIENTE",
+        "nombre": "AMADEO",
+        "apellido": "BASILE PEÑALBA",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP235",
+        "placa": "81655",
+        "rango": "TENIENTE",
+        "nombre": "MARCOS",
+        "apellido": "CORDOBA",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP236",
+        "placa": "80355",
+        "rango": "TENIENTE",
+        "nombre": "RAFAEL ALEXIS",
+        "apellido": "BARRIA CORTEZ",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP237",
+        "placa": "81414",
+        "rango": "SUBTENIENTE",
+        "nombre": "EMANUEL JAHIR",
+        "apellido": "GUTIERREZ SANTOS",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP238",
+        "placa": "71051",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "ROBERTO RENEE",
+        "apellido": "PINZON ROBLES",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP239",
+        "placa": "80839",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "GABRIEL ALEJANDRO",
+        "apellido": "RODRIGUEZ",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP240",
+        "placa": "81272",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "KELVIN",
+        "apellido": "CAMAÑO MELA",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP241",
+        "placa": "80670",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "KENIER RICDEL",
+        "apellido": "SANJUR GONZALEZ",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP242",
+        "placa": "80625",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "MANUEL ALEXANDER",
+        "apellido": "CORDOBA ANDRADE",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP243",
+        "placa": "81996",
+        "rango": "CABO 1RO.",
+        "nombre": "ADRIAN",
+        "apellido": "CASTRO CHAVEZ",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP244",
+        "placa": "82093",
+        "rango": "CABO 1RO.",
+        "nombre": "FEDERICO",
+        "apellido": "VERGARA",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP245",
+        "placa": "82089",
+        "rango": "CABO 1RO.",
+        "nombre": "KENYE",
+        "apellido": "VALDES",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP246",
+        "placa": "80897",
+        "rango": "CABO 2DO.",
+        "nombre": "BORIS NODIER",
+        "apellido": "CUBILLA MORENO",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP247",
+        "placa": "83375",
+        "rango": "GUARDIA",
+        "nombre": "HAIDY",
+        "apellido": "CAMAÑO",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP248",
+        "placa": "83196",
+        "rango": "GUARDIA",
+        "nombre": "VICTOR",
+        "apellido": "CASTILLO",
+        "departamento_id": "DEP011",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP249",
+        "placa": "80240",
+        "rango": "TENIENTE",
+        "nombre": "JULIO CESAR",
+        "apellido": "NAVARRO GUTIERREZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP250",
+        "placa": "80862",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "CARLOS",
+        "apellido": "RANGEL  FRAGUEIRO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP251",
+        "placa": "80922",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "DAVID PASCUAL",
+        "apellido": "PINZON RODRIGUEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP252",
+        "placa": "81179",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ABEL",
+        "apellido": "VEGA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP253",
+        "placa": "81310",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DANIEL ANTONIO",
+        "apellido": "DE GRACIA  NAVARRO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP254",
+        "placa": "81221",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DANIEL ARTURO",
+        "apellido": "SALCEDO MORALES",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP255",
+        "placa": "80637",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DIMBER MANUEL",
+        "apellido": "RODRIGUEZ MONTILLA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP256",
+        "placa": "80658",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ELIECER DAVID",
+        "apellido": "VANEGAS ROJAS",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP257",
+        "placa": "81170",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "VICTOR ERNESTO",
+        "apellido": "CAÑATE BABLES",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP258",
+        "placa": "81631",
+        "rango": "CABO 1RO.",
+        "nombre": "ABDIEL ANTONIO",
+        "apellido": "PERALTA MELA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP259",
+        "placa": "81949",
+        "rango": "CABO 1RO.",
+        "nombre": "ABDIEL ANTONIO",
+        "apellido": "TUÑON ESCOBAR",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP260",
+        "placa": "81550",
+        "rango": "CABO 1RO.",
+        "nombre": "ALEJANDRO ABDEL",
+        "apellido": "SANCHEZ SANCHEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP261",
+        "placa": "81382",
+        "rango": "CABO 1RO.",
+        "nombre": "DARYSNEL ISAAC",
+        "apellido": "PEREZ QUIROS",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP262",
+        "placa": "81609",
+        "rango": "CABO 1RO.",
+        "nombre": "ELIECER JOEL",
+        "apellido": "GONZALEZ MORENO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP263",
+        "placa": "71630",
+        "rango": "CABO 1RO.",
+        "nombre": "HECTOR ENRIQUE",
+        "apellido": "MARIN CASAS",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP264",
+        "placa": "82155",
+        "rango": "CABO 1RO.",
+        "nombre": "NELSON ENRIQUE",
+        "apellido": "RODRIGUEZ MORAN",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP265",
+        "placa": "81979",
+        "rango": "CABO 1RO.",
+        "nombre": "OLIVER OCTAVIO",
+        "apellido": "BARBA GAITAN",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP266",
+        "placa": "70992",
+        "rango": "CABO 1RO.",
+        "nombre": "ROBERTO ANTONIO",
+        "apellido": "CASTILLERO CASTILLO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP267",
+        "placa": "71539",
+        "rango": "CABO 1RO.",
+        "nombre": "SELESTINO",
+        "apellido": "GONZALEZ ALVARADO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP268",
+        "placa": "82478",
+        "rango": "CABO 2DO.",
+        "nombre": "AVELINO ENRIQUE",
+        "apellido": "DEL BARRIO SAAVEDRA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP269",
+        "placa": "82287",
+        "rango": "CABO 2DO.",
+        "nombre": "EYDER JOSUE",
+        "apellido": "RODRIGUEZ GONZALEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP270",
+        "placa": "80619",
+        "rango": "CABO 2DO.",
+        "nombre": "JOSÉ MARÍA",
+        "apellido": "SAENZ GAYTAN",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP271",
+        "placa": "82894",
+        "rango": "GUARDIA",
+        "nombre": "CARLOS ANTONIO",
+        "apellido": "DÍAZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP272",
+        "placa": "82937",
+        "rango": "GUARDIA",
+        "nombre": "CARLOS DE JESÚS",
+        "apellido": "PASCUAL LARA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP273",
+        "placa": "83351",
+        "rango": "GUARDIA",
+        "nombre": "JONATHAN",
+        "apellido": "FRANCO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP274",
+        "placa": "82973",
+        "rango": "GUARDIA",
+        "nombre": "JORGE DAVID",
+        "apellido": "VÁSQUEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP275",
+        "placa": "83621",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN",
+        "apellido": "QUINTERO",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP276",
+        "placa": "82935",
+        "rango": "GUARDIA",
+        "nombre": "KEVIN ISAAC",
+        "apellido": "NÚÑEZ DE GRACIA",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP277",
+        "placa": "82965",
+        "rango": "GUARDIA",
+        "nombre": "LUIS ALBERTO",
+        "apellido": "SÁNCHEZ, SÁNCHEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP278",
+        "placa": "82920",
+        "rango": "GUARDIA",
+        "nombre": "NODIER ALEXANDER",
+        "apellido": "JORDÁN RODRIGUEZ",
+        "departamento_id": "DEP012",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP279",
+        "placa": "80094",
+        "rango": "MAYOR",
+        "nombre": "EFRAIN",
+        "apellido": "BERNAL",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP280",
+        "placa": "81127",
+        "rango": "CAPITAN",
+        "nombre": "JOSE ERNESTO",
+        "apellido": "HOMERO MENDEZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP281",
+        "placa": "81377",
+        "rango": "CAPITAN",
+        "nombre": "MARCOS ELOY",
+        "apellido": "RAMOS DE LEON",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP282",
+        "placa": "80269",
+        "rango": "TENIENTE",
+        "nombre": "ABELARDO",
+        "apellido": "ARROCHA DIAZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP283",
+        "placa": "80416",
+        "rango": "TENIENTE",
+        "nombre": "ALEXIS MAGDIEL",
+        "apellido": "ROJAS CASTILLO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP284",
+        "placa": "71339",
+        "rango": "TENIENTE",
+        "nombre": "JOSE G.",
+        "apellido": "FRANCESCHI J.",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP285",
+        "placa": "80343",
+        "rango": "TENIENTE",
+        "nombre": "WILMAR",
+        "apellido": "RIVERA AGUIRRE",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP286",
+        "placa": "80491",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "ELVIS JAVIER",
+        "apellido": "SOSA FAJARDO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP287",
+        "placa": "70956",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "JOSE RAIMUNDO",
+        "apellido": "BERROCAL CORRO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP288",
+        "placa": "80481",
+        "rango": "SARGENTO 1RO.",
+        "nombre": "MARIO AXEL",
+        "apellido": "QUINTERO CARVAJAL",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP289",
+        "placa": "81325",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "BELERMINO ELIAS",
+        "apellido": "MONTEMAYOR  BARRIA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP290",
+        "placa": "71131",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "DIEGO ARIANO",
+        "apellido": "THOMPSON DIAZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP291",
+        "placa": "81088",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "MICHEL ORLEY",
+        "apellido": "ROMERO RODRIGUEZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP292",
+        "placa": "80655",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "OVIGILDO",
+        "apellido": "GONZALEZ EYSSERIC",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP293",
+        "placa": "81076",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "ROLANDO ABEL",
+        "apellido": "GOMEZ CHAVEZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP294",
+        "placa": "71386",
+        "rango": "CABO 1RO.",
+        "nombre": "ALEXANDER",
+        "apellido": "ALVAREZ QUINTANA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP295",
+        "placa": "82171",
+        "rango": "CABO 1RO.",
+        "nombre": "ARELYS HIBET",
+        "apellido": "VEGA GUTIERREZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP296",
+        "placa": "82092",
+        "rango": "CABO 1RO.",
+        "nombre": "FRANCISCO",
+        "apellido": "VELARDE MADARIAGA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP297",
+        "placa": "82051",
+        "rango": "CABO 1RO.",
+        "nombre": "GENITO SAMIR",
+        "apellido": "MORENO AGUIRRE",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP298",
+        "placa": "81533",
+        "rango": "CABO 1RO.",
+        "nombre": "JUAN JOSE",
+        "apellido": "PINTO PEREZ",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP299",
+        "placa": "81924",
+        "rango": "CABO 1RO.",
+        "nombre": "MIGUEL ANTONIO",
+        "apellido": "SANCHEZ HIDALGO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP300",
+        "placa": "70827",
+        "rango": "CABO 1RO.",
+        "nombre": "WILMER",
+        "apellido": "CARREÑO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP301",
+        "placa": "82135",
+        "rango": "GUARDIA",
+        "nombre": "ENRIQUE ISMAEL",
+        "apellido": "QUINTERO MENDOZA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP302",
+        "placa": "83108",
+        "rango": "GUARDIA",
+        "nombre": "GUILLERMO ANTONIO",
+        "apellido": "SANTAMARIA VALENCIA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP303",
+        "placa": "83604",
+        "rango": "GUARDIA",
+        "nombre": "IRIS",
+        "apellido": "BATISTA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP304",
+        "placa": "83163",
+        "rango": "GUARDIA",
+        "nombre": "JAVIER ENRIQUE",
+        "apellido": "DE LEÓN ESCOBAR",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP305",
+        "placa": "70594",
+        "rango": "GUARDIA",
+        "nombre": "JEREMY",
+        "apellido": "MARRUGO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP306",
+        "placa": "83055",
+        "rango": "GUARDIA",
+        "nombre": "JHOSEPH DIDIER",
+        "apellido": "CONTRERAS CORDOBA",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP307",
+        "placa": "83345",
+        "rango": "GUARDIA",
+        "nombre": "JOSUÉ",
+        "apellido": "SERRANO",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP308",
+        "placa": "82889",
+        "rango": "GUARDIA",
+        "nombre": "MARINA",
+        "apellido": "CORTES",
+        "departamento_id": "DEP013",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP309",
+        "placa": "80685",
+        "rango": "TENIENTE",
+        "nombre": "CRISTIAN LEONARDO",
+        "apellido": "GONZALEZ DOMINGUEZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP310",
+        "placa": "70513",
+        "rango": "TENIENTE",
+        "nombre": "DORYAM AMET",
+        "apellido": "ESPITIA JIMENEZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP311",
+        "placa": "70682",
+        "rango": "TENIENTE",
+        "nombre": "JOSE BASILIO",
+        "apellido": "ARCIA GONZALEZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP312",
+        "placa": "71030",
+        "rango": "SUBTENIENTE",
+        "nombre": "JOSUÉ",
+        "apellido": "ORTEGA",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP313",
+        "placa": "81462",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "GILBERTO",
+        "apellido": "NUÑEZ HENRIQUEZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP314",
+        "placa": "81132",
+        "rango": "SARGENTO 2DO.",
+        "nombre": "YAMIR ESTEBAN",
+        "apellido": "RUJANO",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP315",
+        "placa": "81927",
+        "rango": "CABO 1RO.",
+        "nombre": "ORLANDO",
+        "apellido": "SANJUR PEREZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP316",
+        "placa": "80223",
+        "rango": "CABO 2DO.",
+        "nombre": "HÉCTOR ARTURO",
+        "apellido": "ROJAS GALLARDO",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP317",
+        "placa": "82810",
+        "rango": "CABO 2DO.",
+        "nombre": "JORGE",
+        "apellido": "SALDAÑA",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP318",
+        "placa": "82781",
+        "rango": "CABO 2DO.",
+        "nombre": "VIANEL",
+        "apellido": "MONTILLA",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP319",
+        "placa": "82819",
+        "rango": "CABO 2DO.",
+        "nombre": "YEICOL ALBERTO",
+        "apellido": "TROETCH VILLARREAL",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP320",
+        "placa": "83400",
+        "rango": "GUARDIA",
+        "nombre": "GEOVANI",
+        "apellido": "VIGIL",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP321",
+        "placa": "83290",
+        "rango": "GUARDIA",
+        "nombre": "LUIS",
+        "apellido": "MOJICA",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    },
+    {
+        "id": "EMP322",
+        "placa": "83585",
+        "rango": "GUARDIA",
+        "nombre": "PORFIRIA",
+        "apellido": "RODRIGUEZ",
+        "departamento_id": "DEP014",
+        "historial_prestamos": []
+    }
+]

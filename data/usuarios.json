@@ -1,0 +1,26 @@
+[
+    {
+        "id": "USR001",
+        "usuario": "admin",
+        "contrasena": "$2b$12$DNHhAGpKahpc1XN5Ft.gCewoQvl4REbTPuVG13lAreOigxa./1f5C",
+        "rol": "administrador",
+        "nombre": "Juan",
+        "apellido": "Pérez"
+    },
+    {
+        "id": "USR002",
+        "usuario": "admin2",
+        "contrasena": "$2b$12$aKGaBFxJ0xCiP0t4rxrPJuQAYaMCltx/x2VQskfctxuNtBTUZmg3e",
+        "nombre": "Jose",
+        "apellido": "Morales",
+        "rol": "admin"
+    },
+    {
+        "id": "USR003",
+        "usuario": "admin3",
+        "contrasena": "$2b$12$DeRC9O4g9Ml4jwvGbus2JeJaECIKsGltdfyd1qe6MKEPLHF8RGs2e",
+        "nombre": "luis",
+        "apellido": "palacio",
+        "rol": "admin"
+    }
+]

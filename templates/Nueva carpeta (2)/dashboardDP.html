@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sistema de Control de Equipos</title>
+    <link rel="stylesheet" href="/static/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="fas fa-user-circle"></i> </div>
+                <div class="user-info">
+                    <span>{{ nombre }}</span> {{ apellido }}
+                    <small>Administrador</small> </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="/dashboard" class="active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/usuarios">
+                        <i class="fas fa-users"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/trabajadores">
+                        <i class="fas fa-hard-hat"></i>
+                        <span>Trabajadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/equipos">
+                        <i class="fas fa-laptop"></i>
+                        <span>Equipos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/prestamos">
+                        <i class="fas fa-box-open"></i>
+                        <span>Préstamos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/detalles-prestamo">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Detalles Préstamo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/devoluciones">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>Devoluciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/auditoria">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Auditoría</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/configuracion">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="/auth/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="app-header">
+            <div class="header-left">
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Sistema de Control de Equipos</h1>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <button class="notification-button">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span> </button>
+                    <div class="notification-dropdown">
+                        <ul>
+                            <li>Notificación 1</li>
+                            <li>Notificación 2</li>
+                            <li>Notificación 3</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </header>
+
+        <section class="dashboard-content">
+            <div class="welcome-section">
+                <h2>¡Bienvenido, {{ nombre }} {{ apellido }}!</h2>
+                <p>Administra eficientemente los préstamos y devoluciones de equipos.</p>
+                </div>
+
+            <div class="grid-container">
+                <div class="dashboard-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Equipos Disponibles</h3>
+                    <p>25</p>
+                    <a href="/equipos">Ver Detalles</a>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Préstamos Activos</h3>
+                    <p>10</p>
+                    <a href="/prestamos">Gestionar Préstamos</a>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-undo-alt"></i>
+                    <h3>Devoluciones Pendientes</h3>
+                    <p>3</p>
+                    <a href="/devoluciones">Ver Devoluciones</a>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Usuarios Registrados</h3>
+                    <p>{{ num_usuarios }}</p>
+                    <a href="/usuarios">Administrar Usuarios</a>
+                </div>
+                </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>© 2025 Sistema de Control de Equipos</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('collapsed');
+                    content.classList.toggle('expanded');
+                });
+            }
+
+            const notificationButton = document.querySelector('.notification-button');
+            const notificationDropdown = document.querySelector('.notification-dropdown');
+
+            if (notificationButton && notificationDropdown) {
+                notificationButton.addEventListener('click', function() {
+                    notificationDropdown.classList.toggle('open');
+                });
+
+                // Cerrar el dropdown si se hace clic fuera de él
+                document.addEventListener('click', function(event) {
+                    if (!notificationButton.contains(event.target) && !notificationDropdown.contains(event.target)) {
+                        notificationDropdown.classList.remove('open');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

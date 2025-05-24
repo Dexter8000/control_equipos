@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Equipos</title>
+    <link rel="stylesheet" href="/static/inventario.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📦 Inventario de Equipos</h1>
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar equipo...">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="view-options">
+                    <button class="export-btn">📄 Exportar CSV</button>
+                    <button class="toggle-view">📊 Vista Alterna</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tabla de Inventario -->
+        <div class="table-container">
+            <table id="inventory-table">
+                <thead>
+                    <tr>
+                        <th class="fixed">ID</th>
+                        <th class="fixed">Nombre</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Serie</th>
+                        <th>Categoría</th>
+                        <th>Subcategoría</th>
+                        <th>Fecha de Adquisición</th>
+                        <th>Garantía Hasta</th>
+                        <th>Ubicación</th>
+                        <th>Ubicación Específica</th>
+                        <th>Estado</th>
+                        <th>Condición</th>
+                        <th>Responsable Actual</th>
+                        <th>Tipo de Adquisición</th>
+                        <th>Mantenimiento Programado</th>
+                        <th>ID Departamento Asignado</th>
+                        <th>Historial de Mantenimientos</th>
+                        <th>Préstamo Actual ID</th>
+                        <th>Notas</th>
+                        <th>Fecha de Creación</th>
+                        <th>Fecha de Última Actualización</th>
+                        <th>Periféricos</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-body">
+                    <!-- Las filas se generarán dinámicamente con JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Formulario para agregar nuevos equipos -->
+        <form id="add-equipment-form" class="modern-form">
+            <div class="form-columns">
+                <fieldset class="form-section">
+                    <legend>📋 Datos Generales</legend>
+                    <input type="text" name="id" placeholder="INV001" pattern="INV\\d{3}" required>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="marca" placeholder="Marca" required>
+                    <input type="text" name="modelo" placeholder="Modelo" required>
+                    <input type="text" name="serie" placeholder="Serie" required>
+                    <input type="text" name="categoria" placeholder="Categoría" required>
+                    <input type="text" name="subcategoria" placeholder="Subcategoría" required>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>📅 Fechas</legend>
+                    <input type="date" name="fecha_adquisicion" required>
+                    <input type="date" name="garantia_hasta" required>
+                    <input type="date" name="mantenimiento_programado">
+                    <input type="datetime-local" name="fecha_creacion" required>
+                    <input type="datetime-local" name="fecha_ultima_actualizacion" required>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend>📍 Ubicación</legend>
+                    <input type="text" name="ubicacion" placeholder="Ubicación" required>
+                    <input type="text" name="ubicacion_especifica" placeholder="Ubicación Específica" required>
+                    <input type="text" name="responsable_actual" placeholder="Responsable" required>
+                    <select name="estado" required>
+                        <option value="activo">Activo</option>
+                        <option value="inactivo">Inactivo</option>
+                    </select>
+                    <select name="condicion" required>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="usado">Usado</option>
+                    </select>
+                    <select name="tipo_adquisicion" required>
+                        <option value="compra">Compra</option>
+                        <option value="donación">Donación</option>
+                    </select>
+                    <input type="text" name="id_departamento_asignado" placeholder="ID Departamento" required>
+                    <input type="text" name="prestamo_actual_id" placeholder="Préstamo Actual ID (opcional)">
+                </fieldset>
+            </div>
+
+            <fieldset class="form-section">
+                <legend>📝 Notas y Mantenimiento</legend>
+                <textarea name="notas" placeholder="Notas"></textarea>
+                <textarea name="historial_mantenimientos" placeholder="Historial de Mantenimientos (JSON)"></textarea>
+            </fieldset>
+
+            <fieldset class="form-section peripherals-section">
+                <legend>🖥️ Periféricos</legend>
+                <button type="button" id="add-peripheral-btn">➕ Agregar Periférico</button>
+                <div id="peripherals-list"></div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">🚀 Guardar Equipo</button>
+            </div>
+        </form>
+
+        <div class="acciones">
+            <a href="/dashboard">← Volver al Dashboard</a>
+        </div>
+    </div>
+
+    <!-- ✅ Pasar datos de Python a JavaScript -->
+    <script>
+        const inventario = {{ inventario | tojson | safe }};
+    </script>    
+    
+    <script src="/static/inventario.js"></script>
+</body>
+</html>
+

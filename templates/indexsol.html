@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Préstamos de Equipos Electrónicos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Animaciones personalizadas */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        /* Scroll personalizado */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Efecto hover para botones */
+        .btn-hover {
+            transition: all 0.2s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Efecto para inputs */
+        .input-focus:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header con gradiente -->
+        <div class="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-6 mb-8 rounded-xl shadow-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div class="mb-4 md:mb-0">
+                    <h1 class="text-3xl font-bold flex items-center">
+                        <i class="fas fa-laptop-house mr-3"></i>
+                        Sistema de Préstamos de Equipos
+                    </h1>
+                    <p class="text-blue-100 mt-1">Registro y control de equipos electrónicos</p>
+                </div>
+                <div class="text-right bg-blue-800/30 p-3 rounded-lg backdrop-blur-sm">
+                    <p id="fecha-actual" class="text-lg font-medium"></p>
+                    <p class="text-sm text-blue-200">Número de Préstamo: 
+                        <span id="num-prestamo" class="font-bold text-white"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario Principal con pestañas -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <!-- Pestañas -->
+            <div class="flex border-b">
+                <button id="tab-empleado" class="tab-btn active px-6 py-3 font-medium text-blue-800 border-b-2 border-blue-800">
+                    <i class="fas fa-user-tie mr-2"></i>Empleado
+                </button>
+                <button id="tab-entrega" class="tab-btn px-6 py-3 font-medium text-gray-500">
+                    <i class="fas fa-clipboard-check mr-2"></i>Entrega
+                </button>
+                <button id="tab-equipos" class="tab-btn px-6 py-3 font-medium text-gray-500">
+                    <i class="fas fa-laptop mr-2"></i>Equipos
+                </button>
+                <button id="tab-resumen" class="tab-btn px-6 py-3 font-medium text-gray-500">
+                    <i class="fas fa-file-alt mr-2"></i>Resumen
+                </button>
+            </div>
+
+            <!-- Contenido del formulario -->
+            <form id="prestamo-form" class="p-6">
+                <!-- Pestaña 1: Información del Empleado -->
+                <div id="content-empleado" class="tab-content active">
+                    <h2 class="text-xl font-bold mb-4 text-blue-800 flex items-center">
+                        <i class="fas fa-user-tie mr-2"></i> Información del Empleado
+                    </h2>
+                    
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3">
+                            <label class="block text-gray-700 font-bold mb-2" for="placa-empleado">
+                                <i class="fas fa-id-card mr-1"></i> Placa del Empleado
+                            </label>
+                            <div class="relative">
+                                <input type="text" id="placa-empleado" 
+                                    class="input-focus shadow appearance-none border rounded-lg py-3 px-4 text-gray-700 leading-tight focus:outline-none w-full" 
+                                    placeholder="Ej: 10722">
+                                <button type="button" id="buscar-empleado" 
+                                    class="btn-hover absolute right-2 top-2 bg-blue-700 text-white p-2 rounded-lg hover:bg-blue-600">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Ingrese el número de placa del empleado</p>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <div id="datos-empleado" class="hidden bg-blue-50 p-5 rounded-xl fade-in">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <p class="text-xs text-gray-500 uppercase font-bold">Rango:</p>
+                                        <p id="rango-empleado" class="font-semibold text-blue-800"></p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <p class="text-xs text-gray-500 uppercase font-bold">Nombre:</p>
+                                        <p id="nombre-empleado" class="font-semibold text-blue-800"></p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <p class="text-xs text-gray-500 uppercase font-bold">ID:</p>
+                                        <p id="id-empleado" class="font-semibold text-blue-800"></p>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <p class="text-xs text-gray-500 uppercase font-bold">Departamento:</p>
+                                        <p id="departamento-empleado" class="font-semibold text-blue-800"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="error-empleado" class="hidden bg-red-50 border-l-4 border-red-500 p-4 mt-4 rounded fade-in">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-exclamation-circle text-red-500"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm text-red-700">No se encontró ningún empleado con esa placa. Verifique el número e intente nuevamente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end mt-6">
+                        <button type="button" id="next-to-entrega" 
+                            class="btn-hover bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pestaña 2: Información de Entrega -->
+                <div id="content-entrega" class="tab-content hidden">
+                    <h2 class="text-xl font-bold mb-4 text-blue-800 flex items-center">
+                        <i class="fas fa-clipboard-check mr-2"></i> Información de Entrega
+                    </h2>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2" for="responsable-entrega">
+                            <i class="fas fa-user-shield mr-1"></i> Responsable de Entrega
+                        </label>
+                        <select id="responsable-entrega" 
+                            class="input-focus shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none">
+                            <option value="">Seleccione responsable</option>
+                            <option value="Manuel Sanjur">Manuel Sanjur</option>
+                            <option value="Jose Morales">Jose Morales</option>
+                            <option value="Luis Escobar">Luis Escobar</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2">
+                            <i class="fas fa-tags mr-1"></i> Tipo de Préstamo
+                        </label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <div>
+                                <input type="radio" id="tipo-pat" name="tipo-prestamo" value="PAT" class="hidden tipo-prestamo-radio" checked>
+                                <label for="tipo-pat" class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300">
+                                    <span class="w-5 h-5 inline-block mr-2 rounded-full border border-gray-400 flex items-center justify-center">
+                                        <span class="radio-dot hidden w-3 h-3 rounded-full bg-blue-700"></span>
+                                    </span>
+                                    <span>PAT</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="tipo-bpc" name="tipo-prestamo" value="BPC" class="hidden tipo-prestamo-radio">
+                                <label for="tipo-bpc" class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300">
+                                    <span class="w-5 h-5 inline-block mr-2 rounded-full border border-gray-400 flex items-center justify-center">
+                                        <span class="radio-dot hidden w-3 h-3 rounded-full bg-blue-700"></span>
+                                    </span>
+                                    <span>BPC</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="tipo-sobrevuelo" name="tipo-prestamo" value="Sobrevuelo" class="hidden tipo-prestamo-radio">
+                                <label for="tipo-sobrevuelo" class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300">
+                                    <span class="w-5 h-5 inline-block mr-2 rounded-full border border-gray-400 flex items-center justify-center">
+                                        <span class="radio-dot hidden w-3 h-3 rounded-full bg-blue-700"></span>
+                                    </span>
+                                    <span>Sobrevuelo</span>
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="tipo-otro" name="tipo-prestamo" value="otro" class="hidden tipo-prestamo-radio">
+                                <label for="tipo-otro" class="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300">
+                                    <span class="w-5 h-5 inline-block mr-2 rounded-full border border-gray-400 flex items-center justify-center">
+                                        <span class="radio-dot hidden w-3 h-3 rounded-full bg-blue-700"></span>
+                                    </span>
+                                    <span>Otro</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="detalle-tipo-prestamo" class="hidden mb-6">
+                        <label class="block text-gray-700 font-bold mb-2" for="detalle-prestamo">
+                            <i class="fas fa-info-circle mr-1"></i> Detalle del tipo de préstamo
+                        </label>
+                        <input type="text" id="detalle-prestamo" 
+                            class="input-focus shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none" 
+                            placeholder="Ej: PAT Central">
+                    </div>
+                    
+                    <div class="flex justify-between mt-6">
+                        <button type="button" id="back-to-empleado" 
+                            class="btn-hover bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button type="button" id="next-to-equipos" 
+                            class="btn-hover bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            Siguiente <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pestaña 3: Equipos a Prestar -->
+                <div id="content-equipos" class="tab-content hidden">
+                    <h2 class="text-xl font-bold mb-4 text-blue-800 flex items-center">
+                        <i class="fas fa-laptop mr-2"></i> Equipos a Prestar
+                    </h2>
+                    
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-2" for="serie-equipo">
+                            <i class="fas fa-barcode mr-1"></i> Ingrese número de serie
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="serie-equipo" 
+                                class="input-focus shadow appearance-none border rounded-lg py-3 px-4 text-gray-700 leading-tight focus:outline-none w-full" 
+                                placeholder="Ej: HP123456789">
+                            <button type="button" id="buscar-equipo" 
+                                class="btn-hover absolute right-2 top-2 bg-blue-700 text-white p-2 rounded-lg hover:bg-blue-600">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Ingrese el número de serie del equipo electrónico</p>
+                        <div id="error-equipo" class="hidden bg-red-50 border-l-4 border-red-500 p-4 mt-4 rounded fade-in">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-exclamation-circle text-red-500"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-red-700">No se encontró ningún equipo con esa serie. Verifique el número e intente nuevamente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="datos-equipo" class="hidden bg-blue-50 p-5 rounded-xl mb-6 fade-in">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Nombre:</p>
+                                <p id="nombre-equipo" class="font-semibold text-blue-800"></p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Marca:</p>
+                                <p id="marca-equipo" class="font-semibold text-blue-800"></p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Modelo:</p>
+                                <p id="modelo-equipo" class="font-semibold text-blue-800"></p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Categoría:</p>
+                                <p id="categoria-equipo" class="font-semibold text-blue-800"></p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <p class="text-xs text-gray-500 uppercase font-bold">Estado:</p>
+                                <p id="estado-equipo" class="font-semibold text-blue-800"></p>
+                            </div>
+                        </div>
+                        <button type="button" id="agregar-equipo" 
+                            class="btn-hover bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            <i class="fas fa-plus mr-2"></i> Agregar a préstamo
+                        </button>
+                    </div>
+                    
+                    <div id="lista-equipos-container" class="mt-6">
+                        <h3 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-list-check mr-2"></i> Equipos en préstamo:
+                            <span class="ml-auto bg-blue-100 text-blue-800 py-1 px-3 rounded-full text-sm">
+                                Total: <span id="total-equipos">0</span>
+                            </span>
+                        </h3>
+                        
+                        <div class="overflow-x-auto custom-scroll">
+                            <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="py-3 px-4 text-left text-gray-700 font-semibold">Serie</th>
+                                        <th class="py-3 px-4 text-left text-gray-700 font-semibold">Nombre</th>
+                                        <th class="py-3 px-4 text-left text-gray-700 font-semibold">Marca</th>
+                                        <th class="py-3 px-4 text-left text-gray-700 font-semibold">Modelo</th>
+                                        <th class="py-3 px-4 text-left text-gray-700 font-semibold">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lista-equipos" class="divide-y divide-gray-200">
+                                    <!-- Los equipos se agregarán aquí dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4 text-right">
+                            <button type="button" id="next-to-resumen" 
+                                class="btn-hover bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                                Ver Resumen <i class="fas fa-file-alt ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between mt-6">
+                        <button type="button" id="back-to-entrega" 
+                            class="btn-hover bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            <i class="fas fa-arrow-left mr-2"></i> Anterior
+                        </button>
+                        <button type="button" id="skip-to-resumen" 
+                            class="btn-hover bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            Saltar a Resumen <i class="fas fa-forward ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pestaña 4: Resumen del Préstamo -->
+                <div id="content-resumen" class="tab-content hidden">
+                    <h2 class="text-xl font-bold mb-4 text-blue-800 flex items-center">
+                        <i class="fas fa-file-alt mr-2"></i> Resumen del Préstamo
+                    </h2>
+                    
+                    <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                        <h3 class="font-bold text-lg mb-4 text-blue-800 border-b pb-2">Detalles del Préstamo</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-700 mb-2 flex items-center">
+                                    <i class="fas fa-user-tie mr-2 text-blue-700"></i> Empleado
+                                </h4>
+                                <div id="resumen-empleado" class="bg-white p-4 rounded-lg shadow-sm">
+                                    <!-- Datos del empleado se llenarán aquí -->
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-gray-700 mb-2 flex items-center">
+                                    <i class="fas fa-clipboard-check mr-2 text-blue-700"></i> Entrega
+                                </h4>
+                                <div id="resumen-entrega" class="bg-white p-4 rounded-lg shadow-sm">
+                                    <!-- Datos de entrega se llenarán aquí -->
+                                </div>
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <h4 class="font-semibold text-gray-700 mb-2 flex items-center">
+                                    <i class="fas fa-laptop mr-2 text-blue-700"></i> Equipos
+                                </h4>
+                                <div id="resumen-equipos" class="bg-white p-4 rounded-lg shadow-sm">
+                                    <div class="overflow-x-auto custom-scroll">
+                                        <table class="min-w-full">
+                                            <thead>
+                                                <tr class="border-b">
+                                                    <th class="py-2 px-4 text-left text-gray-700 font-semibold">Serie</th>
+                                                    <th class="py-2 px-4 text-left text-gray-700 font-semibold">Nombre</th>
+                                                    <th class="py-2 px-4 text-left text-gray-700 font-semibold">Marca</th>
+                                                    <th class="py-2 px-4 text-left text-gray-700 font-semibold">Modelo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="resumen-lista-equipos" class="divide-y divide-gray-200">
+                                                <!-- Equipos se llenarán aquí -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="mt-3 text-right font-semibold">
+                                        Total de equipos: <span id="resumen-total-equipos" class="text-blue-800">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-yellow-500"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Verifique cuidadosamente la información antes de finalizar.</strong> 
+                                    Una vez enviado, no podrá realizar cambios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between mt-6">
+                        <button type="button" id="back-to-equipos" 
+                            class="btn-hover bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            <i class="fas fa-arrow-left mr-2"></i> Atrás
+                        </button>
+                        <button type="submit" id="finalizar-prestamo" 
+                            class="btn-hover bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                            <i class="fas fa-check-circle mr-2"></i> Finalizar Préstamo
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirm-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4 fade-in">
+            <div class="flex items-center mb-4">
+                <div class="bg-green-100 p-3 rounded-full mr-4">
+                    <i class="fas fa-check-circle text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800">Préstamo registrado</h3>
+            </div>
+            <p class="text-gray-600 mb-6">El préstamo se ha registrado correctamente. Se ha enviado una copia al correo del empleado.</p>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                <p class="text-sm text-gray-600">Número de préstamo:</p>
+                <p id="modal-num-prestamo" class="font-bold text-blue-800"></p>
+            </div>
+            <div class="flex justify-end">
+                <button id="close-modal" class="btn-hover bg-blue-700 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg focus:outline-none">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Bases de datos (simuladas con objetos JavaScript)
+        const trabajadores = [
+            {
+                "id": "EMP001",
+                "placa": "10722",
+                "rango": "SUBCOMISIONADO",
+                "nombre": "JHONATHAN INDOMAR",
+                "apellido": "ALI SANCHEZ",
+                "departamento_id": "DEP002",
+                "email": "jali@example.com",
+                "historial_prestamos": []
+            },
+            {
+                "id": "EMP002",
+                "placa": "80040",
+                "rango": "SUBCOMISIONADO",
+                "nombre": "LEE",
+                "apellido": "BAZER MELENDEZ",
+                "departamento_id": "DEP002",
+                "email": "lbazer@example.com",
+                "historial_prestamos": []
+            },
+            {
+                "id": "EMP003",
+                "placa": "80056",
+                "rango": "SUBCOMISIONADO",
+                "nombre": "LUIS ALBERTO",
+                "apellido": "HENRIQUEZ LASSO",
+                "departamento_id": "DEP002",
+                "email": "lhenriquez@example.com",
+                "historial_prestamos": []
+            }
+        ];
+
+        const departamentos = [
+            { "id": "DEP001", "nombre": "01-JEFATURA" },
+            { "id": "DEP002", "nombre": "JEFATURA" },
+            { "id": "DEP003", "nombre": "DEPARTAMENTO ADMINISTRATIVO" },
+            { "id": "DEP004", "nombre": "UNIDADES EN OTRA DEPENDENCIA" },
+            { "id": "DEP005", "nombre": "DEPARTAMENTO DE ENLACE Y MONITOREO DE INFORMACION AERONAVAL" },
+            { "id": "DEP006", "nombre": "DEPARTAMENTO DE OPERACIONES" },
+            { "id": "DEP007", "nombre": "TÉCNICOS OPERACIONALES" },
+            { "id": "DEP008", "nombre": "Departamento de Fusión Operacional de Inteligencia" },
+            { "id": "DEP009", "nombre": "INTELIGENCIA INSULAR" },
+            { "id": "DEP010", "nombre": "INTELIGENCIA AÉREA" },
+            { "id": "DEP011", "nombre": "Departamento de Análisis de Inteligencia" },
+            { "id": "DEP012", "nombre": "DEPARTAMENTO CANINO" },
+            { "id": "DEP013", "nombre": "DEPARTAMENTO DE INTELIGENCIA CRIMINAL" },
+            { "id": "DEP014", "nombre": "DEPARTAMENTO REGIONAL DE INTELIGENCIA AERONAVAL" },
+            { "id": "DEP015", "nombre": "[sin departamento]" }
+        ];
+
+        const equipos = [
+            {
+                "id": "INV001",
+                "nombre": "HP EliteBook 840 G8",
+                "marca": "HP",
+                "modelo": "EliteBook 840 G8",
+                "serie": "HP123456789",
+                "categoria": "Computadoras y Accesorios",
+                "subcategoria": "Computadoras",
+                "estado": "operativo",
+                "condicion": "nuevo",
+                "tipo_adquisicion": "compra",
+                "id_departamento_asignado": "DEP002",
+                "ubicacion_especifica": "Cubículo A-10",
+                "responsable_actual": "EMP001",
+                "fecha_creacion": "2025-01-11T09:00:00Z",
+                "fecha_adquisicion": "2025-01-10",
+                "Detalles": "pantalla rota",
+                "periferico": "ninguno",
+                "perifericos": [
+                    {
+                        "id": "INV002",
+                        "nombre": "Monitor HP E24 G4",
+                        "marca": "HP",
+                        "modelo": "E24 G4",
+                        "serie": "HP-MON12345",
+                        "categoria": "Computadoras y Accesorios",
+                        "subcategoria": "Monitores",
+                        "estado": "activo",
+                        "condicion": "nuevo",
+                        "tipo_adquisicion": "compra",
+                        "id_departamento_asignado": "DEP002",
+                        "ubicacion_especifica": "Cubículo A-10",
+                        "responsable_actual": "EMP001",
+                        "fecha_creacion": "2025-01-11T09:00:00Z",
+                        "fecha_adquisicion": "2025-01-10",
+                        "Detalles": "pantalla rota",
+                        "periferico": "INV001"
+                    },
+                    {
+                        "id": "INV003",
+                        "nombre": "Teclado Logitech K380",
+                        "marca": "Logitech",
+                        "modelo": "K380",
+                        "serie": "LOG-KB123",
+                        "categoria": "Computadoras y Accesorios",
+                        "subcategoria": "Teclados",
+                        "estado": "activo",
+                        "condicion": "nuevo",
+                        "tipo_adquisicion": "compra",
+                        "id_departamento_asignado": "DEP002",
+                        "ubicacion_especifica": "Cubículo A-10",
+                        "responsable_actual": "EMP001",
+                        "fecha_creacion": "2025-01-11T09:00:00Z",
+                        "fecha_adquisicion": "2025-01-10",
+                        "Detalles": "Teclado inalámbrico asignado con laptop.",
+                        "periferico": "INV001"
+                    },
+                    {
+                        "id": "INV004",
+                        "nombre": "Mouse Logitech M720",
+                        "marca": "Logitech",
+                        "modelo": "M720",
+                        "serie": "LOG-MSE456",
+                        "categoria": "Computadoras y Accesorios",
+                        "subcategoria": "Ratones",
+                        "estado": "activo",
+                        "condicion": "nuevo",
+                        "tipo_adquisicion": "compra",
+                        "id_departamento_asignado": "DEP002",
+                        "ubicacion_especifica": "Cubículo A-10",
+                        "responsable_actual": "EMP001",
+                        "fecha_creacion": "2025-01-11T09:00:00Z",
+                        "fecha_adquisicion": "2025-01-10",
+                        "Detalles": "Ratón ergonómico asignado con laptop.",
+                        "periferico": "INV001"
+                    }
+                ]
+            },
+            {
+                "id": "INV005",
+                "nombre": "Inmarsat IsatPhone 2",
+                "marca": "Inmarsat",
+                "modelo": "IsatPhone 2",
+                "serie": "SAT-INM123",
+                "categoria": "Comunicación Satelital",
+                "subcategoria": "Teléfonos satelitales",
+                "estado": "activo",
+                "condicion": "nuevo",
+                "tipo_adquisicion": "donación",
+                "id_departamento_asignado": "DEP009",
+                "ubicacion_especifica": "Almacén Satelital",
+                "responsable_actual": "EMP005",
+                "fecha_creacion": "2024-12-02T08:30:00Z",
+                "fecha_adquisicion": "2024-12-01",
+                "Detalles": "Teléfono satelital para uso en campo.",
+                "periferico": "ninguno"
+            },
+            {
+                "id": "INV006",
+                "nombre": "ICOM SAT 100 Iridium",
+                "marca": "ICOM",
+                "modelo": "SAT 100",
+                "serie": "8888888888",
+                "categoria": "Radios de Comunicación",
+                "subcategoria": "Radio Satelital",
+                "estado": "activo",
+                "condicion": "nuevo",
+                "tipo_adquisicion": "compra",
+                "id_departamento_asignado": "DEP010",
+                "ubicacion_especifica": "Cabina de comunicaciones",
+                "responsable_actual": "EMP009",
+                "fecha_creacion": "2025-02-21T10:00:00Z",
+                "fecha_adquisicion": "2025-02-20",
+                "Detalles": "",
+                "periferico": "ninguno"
+            },
+            {
+                "id": "INV007",
+                "nombre": "Radio satelital",
+                "marca": "ICOM",
+                "modelo": "Sat 100",
+                "serie": "999999",
+                "categoria": "Radios de comunicación",
+                "subcategoria": "Radio satelital",
+                "estado": "Activo",
+                "condicion": "nuevo",
+                "tipo_adquisicion": "compra",
+                "id_departamento_asignado": "DEP010",
+                "ubicacion_especifica": "Pat central",
+                "responsable_actual": "jose morales",
+                "fecha_creacion": "2025-03-31T01:11",
+                "fecha_adquisicion": "2025-03-19",
+                "Detalles": "exito",
+                "periferico": "ninguno",
+                "perifericos": []
+            },
+            {
+                "id": "INV008",
+                "nombre": "Radio satelital",
+                "marca": "ICOM",
+                "modelo": "Sat 100",
+                "serie": "999999",
+                "categoria": "Radios de comunicación",
+                "subcategoria": "Radio satelital",
+                "estado": "Activo",
+                "condicion": "nuevo",
+                "tipo_adquisicion": "compra",
+                "id_departamento_asignado": "DEP010",
+                "ubicacion_especifica": "Pat central",
+                "responsable_actual": "jose morales",
+                "fecha_creacion": "2025-03-31T01:24",
+                "fecha_adquisicion": "2025-03-12",
+                "Detalles": "exit",
+                "periferico": "ninguno"
+            }
+        ];
+
+        // Variables globales
+        let equiposSeleccionados = [];
+        let empleadoActual = null;
+        let equipoActual = null;
+        let numPrestamo = '';
+
+        // Módulo para manejar las búsquedas
+        const Busqueda = {
+            buscarEmpleado: function() {
+                const placa = document.getElementById('placa-empleado').value.trim();
+                if (!placa) {
+                    this.mostrarError('placa-empleado', 'Por favor, ingrese un número de placa.');
+                    return;
+                }
+
+                const empleado = trabajadores.find(t => t.placa === placa);
+
+                if (empleado) {
+                    // Encontrado, mostrar datos
+                    document.getElementById('error-empleado').classList.add('hidden');
+                    document.getElementById('datos-empleado').classList.remove('hidden');
+
+                    document.getElementById('rango-empleado').textContent = empleado.rango;
+                    document.getElementById('nombre-empleado').textContent = `${empleado.nombre} ${empleado.apellido}`;
+                    document.getElementById('id-empleado').textContent = empleado.id;
+
+                    // Buscar departamento
+                    const departamento = departamentos.find(d => d.id === empleado.departamento_id);
+                    document.getElementById('departamento-empleado').textContent = departamento ? departamento.nombre : 'No asignado';
+
+                    // Guardar empleado actual
+                    empleadoActual = empleado;
+                } else {
+                    // No encontrado, mostrar error
+                    document.getElementById('datos-empleado').classList.add('hidden');
+                    document.getElementById('error-empleado').classList.remove('hidden');
+                    empleadoActual = null;
+                }
+            },
+
+            buscarEquipo: function() {
+                const serie = document.getElementById('serie-equipo').value.trim();
+                if (!serie) {
+                    this.mostrarError('serie-equipo', 'Por favor, ingrese un número de serie.');
+                    return;
+                }
+
+                const equipo = equipos.find(t => t.serie === serie);
+
+                if (equipo) {
+                    // Encontrado, mostrar datos
+                    document.getElementById('error-equipo').classList.add('hidden');
+                    document.getElementById('datos-equipo').classList.remove('hidden');
+
+                    document.getElementById('nombre-equipo').textContent = equipo.nombre;
+                    document.getElementById('marca-equipo').textContent = equipo.marca;
+                    document.getElementById('modelo-equipo').textContent = equipo.modelo;
+                    document.getElementById('categoria-equipo').textContent = equipo.categoria;
+                    document.getElementById('estado-equipo').textContent = equipo.estado;
+
+                    // Guardar equipo actual
+                    equipoActual = equipo;
+                } else {
+                    // No encontrado, mostrar error
+                    document.getElementById('datos-equipo').classList.add('hidden');
+                    document.getElementById('error-equipo').classList.remove('hidden');
+                    equipoActual = null;
+                }
+            },
+
+            mostrarError: function(elementId, mensaje) {
+                const errorElement = document.getElementById(`error-${elementId}`);
+                errorElement.textContent = mensaje;
+                errorElement.classList.remove('hidden');
+                errorElement.classList.add('fade-in');
+            }
+        };
+
+        // Módulo para manejar la adición de equipos
+        const Equipos = {
+            agregarEquipo: function() {
+                if (!equipoActual) {
+                    alert('Por favor, busque un equipo primero.');
+                    return;
+                }
+
+                // Verificar si ya está en la lista
+                if (equiposSeleccionados.find(e => e.id === equipoActual.id)) {
+                    alert('Este equipo ya está en la lista de préstamos.');
+                    return;
+                }
+
+                // Agregar a la lista de equipos seleccionados
+                equiposSeleccionados.push(equipoActual);
+
+                // Agregar a la tabla de visualización
+                const tbody = document.getElementById('lista-equipos');
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-50';
+                tr.innerHTML = `
+                    <td class="py-3 px-4">${equipoActual.serie}</td>
+                    <td class="py-3 px-4">${equipoActual.nombre}</td>
+                    <td class="py-3 px-4">${equipoActual.marca}</td>
+                    <td class="py-3 px-4">${equipoActual.modelo}</td>
+                    <td class="py-3 px-4">
+                        <button type="button" class="eliminar-equipo text-red-600 hover:text-red-800 font-medium"
+                                data-id="${equipoActual.id}">
+                            <i class="fas fa-trash mr-1"></i> Eliminar
+                        </button>
+                    </td>
+                `;
+
+                tbody.appendChild(tr);
+
+                // Actualizar contador de equipos
+                actualizarContadorEquipos();
+
+                // Agregar el evento de eliminación
+                tr.querySelector('.eliminar-equipo').addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    Equipos.eliminarEquipo(id, tr);
+                });
+
+                // Limpiar selección actual
+                document.getElementById('serie-equipo').value = '';
+                document.getElementById('datos-equipo').classList.add('hidden');
+                equipoActual = null;
+            },
+
+            eliminarEquipo: function(id, elemento) {
+                // Eliminar del array
+                equiposSeleccionados = equiposSeleccionados.filter(e => e.id !== id);
+
+                // Eliminar del DOM
+                elemento.remove();
+
+                // Actualizar contador
+                actualizarContadorEquipos();
+            }
+        };
+
+        // Módulo para manejar las pestañas
+        const Tabs = {
+            cambiarTab: function(tabId) {
+                // Ocultar todos los contenidos de pestañas
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                });
+
+                // Mostrar el contenido de la pestaña seleccionada
+                document.getElementById(`content-${tabId}`).classList.remove('hidden');
+                document.getElementById(`content-${tabId}`).classList.add('active');
+
+                // Actualizar estado de los botones de pestaña
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active', 'text-blue-800', 'border-blue-800');
+                    btn.classList.add('text-gray-500');
+                });
+
+                // Activar el botón de la pestaña seleccionada
+                document.getElementById(`tab-${tabId}`).classList.add('active', 'text-blue-800', 'border-blue-800');
+                document.getElementById(`tab-${tabId}`).classList.remove('text-gray-500');
+            },
+
+            validarAntesDeCambiar: function(tabActual, tabSiguiente) {
+                // Validaciones específicas antes de cambiar de pestaña
+                if (tabActual === 'empleado' && tabSiguiente === 'entrega') {
+                    if (!empleadoActual) {
+                        alert('Debe buscar y seleccionar un empleado válido antes de continuar.');
+                        return false;
+                    }
+                }
+                
+                if (tabActual === 'entrega' && tabSiguiente === 'equipos') {
+                    const responsable = document.getElementById('responsable-entrega').value;
+                    if (!responsable) {
+                        alert('Debe seleccionar un responsable de entrega.');
+                        return false;
+                    }
+                    
+                    const tipoPrestamo = document.querySelector('input[name="tipo-prestamo"]:checked');
+                    if (!tipoPrestamo) {
+                        alert('Debe seleccionar un tipo de préstamo.');
+                        return false;
+                    }
+                    
+                    const detalle = document.getElementById('detalle-prestamo').value;
+                    if (!detalle) {
+                        alert('Debe ingresar el detalle del tipo de préstamo.');
+                        return false;
+                    }
+                }
+                
+                if (tabActual === 'equipos' && tabSiguiente === 'resumen') {
+                    if (equiposSeleccionados.length === 0) {
+                        alert('Debe agregar al menos un equipo al préstamo.');
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+        };
+
+        // Módulo para manejar el resumen
+        const Resumen = {
+            actualizarResumen: function() {
+                if (!empleadoActual) return;
+                
+                // Actualizar datos del empleado
+                const departamento = departamentos.find(d => d.id === empleadoActual.departamento_id);
+                document.getElementById('resumen-empleado').innerHTML = `
+                    <p class="text-sm text-gray-600">Nombre:</p>
+                    <p class="font-semibold text-blue-800 mb-2">${empleadoActual.nombre} ${empleadoActual.apellido}</p>
+                    
+                    <p class="text-sm text-gray-600">Placa:</p>
+                    <p class="font-semibold text-blue-800 mb-2">${empleadoActual.placa}</p>
+                    
+                    <p class="text-sm text-gray-600">Departamento:</p>
+                    <p class="font-semibold text-blue-800">${departamento ? departamento.nombre : 'No asignado'}</p>
+                `;
+                
+                // Actualizar datos de entrega
+                const responsable = document.getElementById('responsable-entrega').value;
+                const tipoPrestamo = document.querySelector('input[name="tipo-prestamo"]:checked').value;
+                const detallePrestamo = document.getElementById('detalle-prestamo').value;
+                
+                document.getElementById('resumen-entrega').innerHTML = `
+                    <p class="text-sm text-gray-600">Responsable:</p>
+                    <p class="font-semibold text-blue-800 mb-2">${responsable}</p>
+                    
+                    <p class="text-sm text-gray-600">Tipo de préstamo:</p>
+                    <p class="font-semibold text-blue-800 mb-2">${tipoPrestamo}</p>
+                    
+                    <p class="text-sm text-gray-600">Detalle:</p>
+                    <p class="font-semibold text-blue-800">${detallePrestamo}</p>
+                `;
+                
+                // Actualizar lista de equipos
+                const tbody = document.getElementById('resumen-lista-equipos');
+                tbody.innerHTML = '';
+                
+                equiposSeleccionados.forEach(equipo => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="py-2 px-4">${equipo.serie}</td>
+                        <td class="py-2 px-4">${equipo.nombre}</td>
+                        <td class="py-2 px-4">${equipo.marca}</td>
+                        <td class="py-2 px-4">${equipo.modelo}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+                
+                document.getElementById('resumen-total-equipos').textContent = equiposSeleccionados.length;
+            }
+        };
+
+        // Inicializar fecha y número de préstamo
+        function inicializarFechaYNumero() {
+            // Mostrar fecha actual
+            const fechaActual = new Date();
+            const options = { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' };
+            document.getElementById('fecha-actual').textContent = fechaActual.toLocaleDateString('es-ES', options);
+
+            // Generar número de préstamo (fecha + hora + random)
+            const hora = fechaActual.getHours().toString().padStart(2, '0');
+            const minutos = fechaActual.getMinutes().toString().padStart(2, '0');
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            numPrestamo = `PREST-${fechaActual.getFullYear()}${(fechaActual.getMonth() + 1).toString().padStart(2, '0')}${fechaActual.getDate().toString().padStart(2, '0')}-${hora}${minutos}-${random}`;
+
+            document.getElementById('num-prestamo').textContent = numPrestamo;
+        }
+
+        // Actualizar el contador de equipos
+        function actualizarContadorEquipos() {
+            document.getElementById('total-equipos').textContent = equiposSeleccionados.length;
+        }
+
+        // Finalizar préstamo
+        function finalizarPrestamo(e) {
+            e.preventDefault();
+            
+            // Validaciones finales
+            if (!empleadoActual) {
+                alert('Debe seleccionar un empleado válido.');
+                return;
+            }
+
+            const responsableEntrega = document.getElementById('responsable-entrega').value;
+            if (!responsableEntrega) {
+                alert('Debe seleccionar un responsable de entrega.');
+                return;
+            }
+
+            const tipoPrestamo = document.querySelector('input[name="tipo-prestamo"]:checked');
+            if (!tipoPrestamo) {
+                alert('Debe seleccionar un tipo de préstamo.');
+                return;
+            }
+
+            const detallePrestamo = document.getElementById('detalle-prestamo').value;
+            if (!detallePrestamo) {
+                alert('Debe ingresar el detalle del tipo de préstamo.');
+                return;
+            }
+
+            if (equiposSeleccionados.length === 0) {
+                alert('Debe agregar al menos un equipo al préstamo.');
+                return;
+            }
+
+            // Mostrar modal de confirmación
+            document.getElementById('modal-num-prestamo').textContent = numPrestamo;
+            document.getElementById('confirm-modal').classList.remove('hidden');
+            
+            // En un caso real, aquí enviaríamos los datos al servidor
+            console.log({
+                numeroPrestamo: numPrestamo,
+                fecha: document.getElementById('fecha-actual').textContent,
+                empleado: empleadoActual,
+                responsableEntrega: responsableEntrega,
+                tipoPrestamo: tipoPrestamo.value,
+                detallePrestamo: detallePrestamo,
+                equipos: equiposSeleccionados
+            });
+        }
+
+        // Inicialización del formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar fecha y número de préstamo
+            inicializarFechaYNumero();
+
+            // Configurar radios personalizados
+            document.querySelectorAll('.tipo-prestamo-radio').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // Actualizar visualización del radio
+                    document.querySelectorAll('.radio-dot').forEach(dot => {
+                        dot.classList.add('hidden');
+                    });
+                    
+                    const label = document.querySelector(`label[for="${this.id}"]`);
+                    label.querySelector('.radio-dot').classList.remove('hidden');
+                    
+                    // Mostrar/ocultar detalle según tipo
+                    const detalleTipoPrestamo = document.getElementById('detalle-tipo-prestamo');
+                    if (this.checked) {
+                        detalleTipoPrestamo.classList.remove('hidden');
+                        document.getElementById('detalle-prestamo').value = this.value !== 'otro' ? this.value + ' ' : '';
+                    }
+                });
+            });
+            
+            // Seleccionar PAT por defecto
+            document.getElementById('tipo-pat').checked = true;
+            document.querySelector('label[for="tipo-pat"] .radio-dot').classList.remove('hidden');
+            document.getElementById('detalle-tipo-prestamo').classList.remove('hidden');
+            document.getElementById('detalle-prestamo').value = 'PAT ';
+
+            // Event listeners para búsqueda de empleado
+            document.getElementById('buscar-empleado').addEventListener('click', Busqueda.buscarEmpleado);
+            document.getElementById('placa-empleado').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    Busqueda.buscarEmpleado();
+                }
+            });
+
+            // Event listeners para búsqueda de equipo
+            document.getElementById('buscar-equipo').addEventListener('click', Busqueda.buscarEquipo);
+            document.getElementById('serie-equipo').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    Busqueda.buscarEquipo();
+                }
+            });
+
+            // Event listener para agregar equipo
+            document.getElementById('agregar-equipo').addEventListener('click', Equipos.agregarEquipo);
+
+            // Event listeners para navegación entre pestañas
+            document.getElementById('next-to-entrega').addEventListener('click', function() {
+                if (Tabs.validarAntesDeCambiar('empleado', 'entrega')) {
+                    Tabs.cambiarTab('entrega');
+                }
+            });
+            
+            document.getElementById('next-to-equipos').addEventListener('click', function() {
+                if (Tabs.validarAntesDeCambiar('entrega', 'equipos')) {
+                    Tabs.cambiarTab('equipos');
+                }
+            });
+            
+            document.getElementById('next-to-resumen').addEventListener('click', function() {
+                if (Tabs.validarAntesDeCambiar('equipos', 'resumen')) {
+                    Resumen.actualizarResumen();
+                    Tabs.cambiarTab('resumen');
+                }
+            });
+            
+            document.getElementById('skip-to-resumen').addEventListener('click', function() {
+                if (equiposSeleccionados.length > 0) {
+                    Resumen.actualizarResumen();
+                    Tabs.cambiarTab('resumen');
+                } else {
+                    alert('Debe agregar al menos un equipo para ver el resumen.');
+                }
+            });
+            
+            // Botones para volver atrás
+            document.getElementById('back-to-empleado').addEventListener('click', function() {
+                Tabs.cambiarTab('empleado');
+            });
+            
+            document.getElementById('back-to-entrega').addEventListener('click', function() {
+                Tabs.cambiarTab('entrega');
+            });
+            
+            document.getElementById('back-to-equipos').addEventListener('click', function() {
+                Tabs.cambiarTab('equipos');
+            });
+            
+            // Event listener para el formulario
+            document.getElementById('prestamo-form').addEventListener('submit', finalizarPrestamo);
+            
+            // Event listener para cerrar modal
+            document.getElementById('close-modal').addEventListener('click', function() {
+                document.getElementById('confirm-modal').classList.add('hidden');
+                
+                // Reiniciar formulario
+                document.getElementById('prestamo-form').reset();
+                document.getElementById('placa-empleado').value = '';
+                document.getElementById('datos-empleado').classList.add('hidden');
+                document.getElementById('serie-equipo').value = '';
+                document.getElementById('datos-equipo').classList.add('hidden');
+                document.getElementById('lista-equipos').innerHTML = '';
+                equiposSeleccionados = [];
+                empleadoActual = null;
+                equipoActual = null;
+                actualizarContadorEquipos();
+                
+                // Generar nuevo número de préstamo
+                inicializarFechaYNumero();
+                
+                // Volver a la primera pestaña
+                Tabs.cambiarTab('empleado');
+                
+                // Seleccionar PAT por defecto
+                document.getElementById('tipo-pat').checked = true;
+                document.querySelector('label[for="tipo-pat"] .radio-dot').classList.remove('hidden');
+                document.getElementById('detalle-tipo-prestamo').classList.remove('hidden');
+                document.getElementById('detalle-prestamo').value = 'PAT ';
+            });
+            
+            // Event listeners para las pestañas
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.id.replace('tab-', '');
+                    
+                    // Validar si se puede cambiar a esa pestaña
+                    let puedeCambiar = true;
+                    
+                    if (tabId === 'entrega' && !empleadoActual) {
+                        puedeCambiar = false;
+                        alert('Debe completar la información del empleado primero.');
+                    }
+                    
+                    if (tabId === 'equipos') {
+                        const responsable = document.getElementById('responsable-entrega').value;
+                        const tipoPrestamo = document.querySelector('input[name="tipo-prestamo"]:checked');
+                        const detalle = document.getElementById('detalle-prestamo').value;
+                        
+                        if (!responsable || !tipoPrestamo || !detalle) {
+                            puedeCambiar = false;
+                            alert('Debe completar la información de entrega primero.');
+                        }
+                    }
+                    
+                    if (tabId === 'resumen' && equiposSeleccionados.length === 0) {
+                        puedeCambiar = false;
+                        alert('Debe agregar al menos un equipo para ver el resumen.');
+                    }
+                    
+                    if (puedeCambiar) {
+                        if (tabId === 'resumen') {
+                            Resumen.actualizarResumen();
+                        }
+                        Tabs.cambiarTab(tabId);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

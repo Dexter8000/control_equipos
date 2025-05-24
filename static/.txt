@@ -1,0 +1,154 @@
+/* --- GENERAL --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* --- CONTENEDOR LOGIN --- */
+.login-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  margin: 100px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover {
+  transform: scale(1.03);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* --- FORMULARIO LOGIN --- */
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group input:focus {
+  border-color: #00aaff;
+  outline: none;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 32px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* --- BOTÓN LOGIN --- */
+.login-button {
+  background-color: #00aaff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #007acc;
+}
+
+/* --- MENSAJES DE ERROR --- */
+.mensaje {
+  color: #ff4b4b;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* --- BOTONES GENERALES --- */
+.btn-agregar,
+.btn-editar,
+.btn-eliminar {
+  padding: 8px 12px;
+  margin: 2px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-agregar {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* --- TABLAS --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #00aaff;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* --- ÍCONOS --- */
+.icon {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+/* --- BUSCADOR --- */
+#buscador {
+  margin-bottom: 10px;
+  padding: 8px;
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* --- MAPA SI USAS --- */
+#map {
+  height: 400px;
+  width: 100%;
+  margin-top: 20px;
+}

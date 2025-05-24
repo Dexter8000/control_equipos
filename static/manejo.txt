@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Préstamo con Subtipos</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="min-h-screen bg-gray-100 p-8">
+
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Selector de Préstamo Mejorado</h1>
+
+    <div class="bg-white p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">1. Seleccione la Categoría Principal</label>
+            <div class="loan-type-selector">
+                <div class="loan-type-option selected" data-value="PAT">
+                    <i class="fas fa-microchip text-lg"></i>
+                    <span>PAT</span>
+                </div>
+                <div class="loan-type-option" data-value="BPC">
+                    <i class="fas fa-laptop text-lg"></i>
+                    <span>BPC</span>
+                </div>
+                <div class="loan-type-option" data-value="Sobrevuelo">
+                    <i class="fas fa-plane-departure text-lg"></i>
+                    <span>Sobrevuelo</span>
+                </div>
+                <div class="loan-type-option add-loan-type" onclick="showAddLoanTypeModal()">
+                    <i class="fas fa-plus text-lg"></i>
+                    <span>Agregar Tipo</span>
+                </div>
+            </div>
+            <input type="hidden" id="loanCategory" name="loanCategory" value="PAT">
+        </div>
+
+        <div id="subTypeContainer">
+             <label for="subTypeSelect" class="block text-sm font-medium text-gray-700 mb-2">2. Seleccione el Sub-tipo Específico</label>
+             <select id="subTypeSelect" name="loanSubCategory">
+                 </select>
+        </div>
+        <input type="hidden" id="loanSubCategory" name="loanSubCategory" value="">
+
+        <div class="mt-6 p-4 bg-indigo-50 rounded-md border border-indigo-200">
+             <h3 class="text-sm font-medium text-indigo-800">Selección Actual:</h3>
+             <p class="text-indigo-700">Categoría: <strong id="selectedCategoryText">PAT</strong></p>
+             <p class="text-indigo-700">Sub-tipo: <strong id="selectedSubCategoryText">- Ninguno -</strong></p>
+        </div>
+    </div>
+
+    <div id="addLoanTypeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-xl max-w-md w-full animate-pop shadow-xl">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">Agregar Nueva Categoría</h3>
+                    <button onclick="hideAddLoanTypeModal()" class="text-gray-500 hover:text-gray-700 text-xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <label for="newLoanTypeName" class="block text-sm font-medium text-gray-700 mb-1">Nombre Categoría</label>
+                    <input type="text" id="newLoanTypeName" class="input-focus" placeholder="Ej: Equipos Especiales">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Icono (Font Awesome)</label>
+                    <div class="grid grid-cols-5 gap-2">
+                         <div class="icon-option selected-icon" data-icon="fa-microchip"><i class="fas fa-microchip"></i></div>
+                         <div class="icon-option" data-icon="fa-laptop"><i class="fas fa-laptop"></i></div>
+                         <div class="icon-option" data-icon="fa-plane-departure"><i class="fas fa-plane-departure"></i></div>
+                         <div class="icon-option" data-icon="fa-tablet-alt"><i class="fas fa-tablet-alt"></i></div>
+                         <div class="icon-option" data-icon="fa-server"><i class="fas fa-server"></i></div>
+                         <div class="icon-option" data-icon="fa-camera"><i class="fas fa-camera"></i></div>
+                         <div class="icon-option" data-icon="fa-headphones"><i class="fas fa-headphones"></i></div>
+                         <div class="icon-option" data-icon="fa-keyboard"><i class="fas fa-keyboard"></i></div>
+                         <div class="icon-option" data-icon="fa-mouse"><i class="fas fa-mouse"></i></div>
+                         <div class="icon-option" data-icon="fa-print"><i class="fas fa-print"></i></div>
+                         <div class="icon-option" data-icon="fa-question-circle"><i class="fas fa-question-circle"></i></div>
+                         <div class="icon-option" data-icon="fa-cog"><i class="fas fa-cog"></i></div>
+                    </div>
+                    <input type="hidden" id="selectedIcon" value="fa-microchip">
+                </div>
+                <div class="flex justify-end space-x-3 pt-4">
+                    <button onclick="hideAddLoanTypeModal()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">Cancelar</button>
+                    <button onclick="addNewLoanType()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">Agregar Categoría</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
+
+
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+/* Importar la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS */
+:root {
+    --primary: #4f46e5;
+}
+
+/* Estilos generales del body */
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background-color y padding ya aplicados por Tailwind en el HTML */
+}
+
+/* Animación para el modal */
+.animate-pop {
+    animation: pop 0.3s ease-out;
+}
+@keyframes pop {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos input modal */
+.input-focus {
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5e7eb; /* gris-200 */
+    border-radius: 0.5rem; /* rounded-lg */
+    width: 100%;
+}
+.input-focus:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3); /* Sombra focus indigo */
+}
+
+/* Selector principal de categorías */
+.loan-type-selector {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+    gap: 8px; /* space-x-2 / space-y-2 */
+    margin-bottom: 16px; /* mb-4 */
+}
+.loan-type-option {
+    flex: 1; /* Ocupa espacio disponible */
+    min-width: 100px; /* Ancho mínimo */
+    text-align: center;
+    padding: 12px; /* p-3 */
+    border: 1px solid #e5e7eb; /* border gray-200 */
+    border-radius: 8px; /* rounded-lg */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px; /* space-y-1 */
+    background-color: white;
+}
+.loan-type-option:hover {
+    border-color: var(--primary);
+    background-color: #f9fafb; /* gray-50 */
+}
+.loan-type-option.selected {
+    background-color: #eef2ff; /* indigo-100 */
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 500; /* font-medium */
+}
+.loan-type-option.add-loan-type {
+   color: #6b7280; /* gray-500 */
+   border-style: dashed;
+   /* Asegurar que el botón de agregar no se estire tanto como los otros */
+   flex-grow: 0;
+   flex-basis: 120px; /* Ancho base para el botón de agregar */
+}
+.loan-type-option.add-loan-type:hover {
+   color: var(--primary);
+   background-color: #f9fafb; /* gray-50 */
+}
+
+/* Contenedor del Dropdown secundario */
+#subTypeContainer {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 1rem; /* mt-4 */
+}
+#subTypeContainer.visible {
+     max-height: 200px; /* Ajustar según sea necesario */
+     opacity: 1;
+}
+
+/* Dropdown secundario */
+#subTypeSelect {
+    width: 100%;
+    padding: 0.75rem 1rem; /* py-3 px-4 */
+    border: 1px solid #d1d5db; /* border gray-300 */
+    border-radius: 0.375rem; /* rounded-md */
+    background-color: white;
+    appearance: none; /* Quitar estilo por defecto */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22%236b7280%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M10%2012a.75.75%200%2001-.53-.22l-3-3a.75.75%200%20111.06-1.06L10%2010.94l2.47-2.47a.75.75%200%20111.06%201.06l-3%203A.75.75%200%200110%2012z%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    cursor: pointer;
+}
+#subTypeSelect:focus {
+     outline: none;
+     border-color: var(--primary);
+     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+}
+
+/* Estilo opcional para la opción de añadir sub-tipo */
+#subTypeSelect option[value="__ADD_NEW_SUBTYPE__"] {
+    font-style: italic;
+    color: var(--primary);
+    background-color: #f9fafb; /* Ligero fondo para distinguirla */
+}
+
+/* Iconos en modal */
+.icon-option {
+    padding: 8px; /* p-2 */
+    border: 1px solid #e5e7eb; /* border gray-200 */
+    border-radius: 4px; /* rounded */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.icon-option:hover {
+    background-color: #f3f4f6; /* gray-100 */
+}
+.icon-option.selected-icon {
+    background-color: #eef2ff; /* indigo-100 */
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+
+
+
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+
+// Asegurarse de que el DOM esté cargado antes de ejecutar el script
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- DATOS ---
+    const loanSubTypes = {
+        'PAT': ['PAT Central', 'PAT Oeste', 'PAT Norte', 'PAT Sur'],
+        'BPC': ['BPC 7585', 'BPC 9863', 'BPC General', 'BPC Laboratorio'],
+        'Sobrevuelo': [] // Sin sub-tipos definidos inicialmente
+        // Nuevos tipos agregados dinámicamente irán aquí
+    };
+
+    // --- REFERENCIAS A ELEMENTOS DEL DOM ---
+    // Es importante obtener las referencias *después* de que el DOM esté cargado
+    const mainSelectorContainer = document.querySelector('.loan-type-selector');
+    const hiddenCategoryInput = document.getElementById('loanCategory');
+    const hiddenSubCategoryInput = document.getElementById('loanSubCategory');
+    const subTypeContainer = document.getElementById('subTypeContainer');
+    const subTypeSelect = document.getElementById('subTypeSelect');
+    const selectedCategoryTextElement = document.getElementById('selectedCategoryText');
+    const selectedSubCategoryTextElement = document.getElementById('selectedSubCategoryText');
+    const modal = document.getElementById('addLoanTypeModal');
+    const newLoanTypeNameInput = document.getElementById('newLoanTypeName');
+    const selectedIconInput = document.getElementById('selectedIcon');
+    const iconSelectorContainer = modal.querySelector('.grid'); // Asegúrate que el modal existe antes de buscar dentro
+
+    // --- CONSTANTES ---
+    const ADD_SUBTYPE_VALUE = '__ADD_NEW_SUBTYPE__';
+
+    // --- FUNCIONES ---
+
+    // Actualiza el texto que muestra la selección actual
+    function updateSelectedText(category, subCategory) {
+        selectedCategoryTextElement.textContent = category || '- Ninguna -';
+        selectedSubCategoryTextElement.textContent = subCategory || '- Ninguno -';
+    }
+
+    // Pobla y muestra/oculta el dropdown de sub-tipos
+    function populateAndShowDropdown(category) {
+        // Verificar si la categoría existe en nuestros datos
+        if (!loanSubTypes.hasOwnProperty(category)) {
+             console.warn(`Categoría "${category}" no encontrada en loanSubTypes.`);
+             subTypeContainer.classList.remove('visible');
+             if(subTypeSelect) subTypeSelect.innerHTML = ''; // Limpiar si el select existe
+             if(hiddenSubCategoryInput) hiddenSubCategoryInput.value = ''; // Asegurar que no quede un sub-tipo anterior
+             updateSelectedText(category, ''); // Actualizar texto
+             return;
+        }
+
+        const subTypes = loanSubTypes[category];
+        if (!subTypeSelect) return; // Salir si el select no existe en el DOM
+
+        subTypeSelect.innerHTML = ''; // Limpiar opciones anteriores siempre
+
+        // Añadir opción por defecto (placeholder)
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = `Seleccione un sub-tipo de ${category}...`;
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        subTypeSelect.appendChild(defaultOption);
+
+        // Añadir los sub-tipos existentes
+        if (subTypes && subTypes.length > 0) {
+            subTypes.forEach(subType => {
+                const option = document.createElement('option');
+                option.value = subType;
+                option.textContent = subType;
+                subTypeSelect.appendChild(option);
+            });
+        }
+
+        // Añadir la opción para agregar un nuevo sub-tipo
+        const addOption = document.createElement('option');
+        addOption.value = ADD_SUBTYPE_VALUE;
+        addOption.textContent = '➕ Agregar nuevo sub-tipo...';
+        subTypeSelect.appendChild(addOption);
+
+        // Mostrar el contenedor del dropdown
+        if(subTypeContainer) subTypeContainer.classList.add('visible');
+
+        // Si no había sub-tipos, resetear la selección visual y el valor oculto
+        // Se hace aquí para asegurar que el placeholder esté seleccionado
+        if (!hiddenSubCategoryInput || !hiddenSubCategoryInput.value || !subTypes.includes(hiddenSubCategoryInput.value)) {
+            if(hiddenSubCategoryInput) hiddenSubCategoryInput.value = '';
+            updateSelectedText(category, '');
+            subTypeSelect.value = ''; // Asegura que el placeholder se muestre
+        } else {
+            // Si había un sub-tipo válido seleccionado, mantenerlo
+             subTypeSelect.value = hiddenSubCategoryInput.value;
+             updateSelectedText(category, hiddenSubCategoryInput.value);
+        }
+    }
+
+    // Función para pedir y añadir un nuevo sub-tipo
+    function promptAndAddSubType() {
+        if (!hiddenCategoryInput) return;
+        const currentCategory = hiddenCategoryInput.value;
+        if (!currentCategory) {
+            alert('Error: No hay una categoría principal seleccionada.');
+            if(subTypeSelect) subTypeSelect.value = ''; // Volver al placeholder
+            return;
+        }
+
+        const newSubTypeName = prompt(`Ingrese el nombre del nuevo sub-tipo para "${currentCategory}":`);
+
+        if (newSubTypeName === null) { // El usuario canceló
+             if(subTypeSelect) subTypeSelect.value = ''; // Volver al placeholder
+             handleSubTypeSelection(); // Actualizar estado (sin sub-tipo)
+             return;
+        }
+
+        const trimmedName = newSubTypeName.trim();
+        if (!trimmedName) {
+            alert('El nombre del sub-tipo no puede estar vacío.');
+            if(subTypeSelect) subTypeSelect.value = ''; // Volver al placeholder
+            handleSubTypeSelection(); // Actualizar estado
+            return;
+        }
+
+        // Verificar si ya existe (case-sensitive)
+        if (loanSubTypes[currentCategory] && loanSubTypes[currentCategory].includes(trimmedName)) {
+            alert(`El sub-tipo "${trimmedName}" ya existe para "${currentCategory}".`);
+            if(subTypeSelect) subTypeSelect.value = ''; // Volver al placeholder
+            handleSubTypeSelection(); // Actualizar estado
+            return;
+        }
+
+        // Añadir el nuevo sub-tipo a la estructura de datos
+        if(loanSubTypes[currentCategory]) {
+            loanSubTypes[currentCategory].push(trimmedName);
+            console.log(`Nuevo sub-tipo "${trimmedName}" agregado a "${currentCategory}". Subtipos actuales:`, loanSubTypes);
+
+            // Refrescar el dropdown
+            populateAndShowDropdown(currentCategory);
+
+            // Seleccionar automáticamente el nuevo sub-tipo añadido
+            if(subTypeSelect) subTypeSelect.value = trimmedName;
+
+            // Actualizar el valor oculto y el texto de selección
+            handleSubTypeSelection(); // Llama a la función que ya hace esto
+        } else {
+             console.error(`Error: La categoría "${currentCategory}" no existe en loanSubTypes para añadir el sub-tipo.`);
+             if(subTypeSelect) subTypeSelect.value = ''; // Volver al placeholder
+        }
+    }
+
+    // Manejador para la selección en el dropdown de sub-tipos
+    function handleSubTypeSelection() {
+        if (!subTypeSelect) return;
+        const selectedValue = subTypeSelect.value;
+
+        if (selectedValue === ADD_SUBTYPE_VALUE) {
+            // El usuario quiere añadir un nuevo sub-tipo
+            promptAndAddSubType();
+        } else {
+            // Selección normal de un sub-tipo existente o el placeholder
+            if(hiddenSubCategoryInput) hiddenSubCategoryInput.value = selectedValue;
+            const currentCategory = hiddenCategoryInput ? hiddenCategoryInput.value : '';
+            updateSelectedText(currentCategory, selectedValue);
+            console.log('Sub-tipo seleccionado:', selectedValue || '(ninguno)');
+        }
+    }
+
+    // Inicializa el selector de categoría principal
+    function initMainSelector() {
+        if (!mainSelectorContainer) return; // Verificar si el contenedor existe
+
+        mainSelectorContainer.addEventListener('click', function(event) {
+            const clickedOption = event.target.closest('.loan-type-option:not(.add-loan-type)');
+
+            if (clickedOption) {
+                // Gestionar clase 'selected'
+                mainSelectorContainer.querySelectorAll('.loan-type-option.selected').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                clickedOption.classList.add('selected');
+
+                // Actualizar categoría principal
+                const selectedCategory = clickedOption.getAttribute('data-value');
+                if(hiddenCategoryInput) hiddenCategoryInput.value = selectedCategory;
+                console.log('Categoría principal seleccionada:', selectedCategory);
+
+                // Limpiar subcategoría anterior al cambiar de categoría principal
+                if(hiddenSubCategoryInput) hiddenSubCategoryInput.value = '';
+
+                // Poblar/ocultar dropdown de sub-tipos y actualizar texto
+                populateAndShowDropdown(selectedCategory);
+            }
+        });
+
+        // Añadir listener al select de sub-tipos (una sola vez)
+        if (subTypeSelect) {
+            subTypeSelect.addEventListener('change', handleSubTypeSelection);
+        }
+
+         // Inicializar dropdown para la categoría seleccionada por defecto al cargar
+         const initialCategory = hiddenCategoryInput ? hiddenCategoryInput.value : null;
+         if (initialCategory) {
+             populateAndShowDropdown(initialCategory);
+         }
+    }
+
+    // ---- Lógica del Modal (Agregar Nueva Categoría Principal) ----
+
+    function initIconSelector() {
+        // Verificar si los elementos existen
+        if (!selectedIconInput || !iconSelectorContainer) return;
+
+         const defaultIconValue = selectedIconInput.value;
+         const defaultIconElement = iconSelectorContainer.querySelector(`.icon-option[data-icon="${defaultIconValue}"]`);
+         if (defaultIconElement) { defaultIconElement.classList.add('selected-icon'); }
+
+         iconSelectorContainer.addEventListener('click', function(event) {
+             const clickedIconOption = event.target.closest('.icon-option');
+             if (clickedIconOption) {
+                 iconSelectorContainer.querySelectorAll('.icon-option.selected-icon').forEach(i => { i.classList.remove('selected-icon'); });
+                 clickedIconOption.classList.add('selected-icon');
+                 selectedIconInput.value = clickedIconOption.getAttribute('data-icon');
+             }
+         });
+    }
+
+    // Estas funciones ahora son globales porque se llaman desde onclick en el HTML
+    // Si prefieres evitar globales, necesitarías añadir event listeners desde JS
+    window.showAddLoanTypeModal = function() {
+        if (newLoanTypeNameInput) newLoanTypeNameInput.value = '';
+        if (modal) modal.classList.remove('hidden');
+    }
+
+    window.hideAddLoanTypeModal = function() {
+        if (modal) modal.classList.add('hidden');
+    }
+
+    window.addNewLoanType = function() {
+        if (!newLoanTypeNameInput || !selectedIconInput || !mainSelectorContainer) return; // Verificar elementos
+
+        const name = newLoanTypeNameInput.value.trim();
+        const iconClass = selectedIconInput.value;
+
+        if (!name) {
+            alert('Por favor ingrese un nombre para la nueva categoría.');
+            newLoanTypeNameInput.focus();
+            return;
+        }
+        if (loanSubTypes.hasOwnProperty(name)) {
+             alert(`La categoría "${name}" ya existe.`);
+             return;
+        }
+
+        // 1. Crear el nuevo elemento visual
+        const newOption = document.createElement('div');
+        newOption.classList.add('loan-type-option');
+        newOption.setAttribute('data-value', name);
+
+        const iconElement = document.createElement('i');
+        iconElement.classList.add('fas', iconClass, 'text-lg');
+
+        const textElement = document.createElement('span');
+        textElement.textContent = name;
+
+        newOption.appendChild(iconElement);
+        newOption.appendChild(textElement);
+
+        // 2. Insertar antes del botón "Agregar Tipo"
+        const addButton = mainSelectorContainer.querySelector('.add-loan-type');
+        if (addButton) {
+             mainSelectorContainer.insertBefore(newOption, addButton);
+        } else {
+             mainSelectorContainer.appendChild(newOption); // Fallback
+        }
+
+        // 3. Agregar la nueva categoría a la estructura de datos (sin sub-tipos iniciales)
+        loanSubTypes[name] = [];
+        console.log(`Nueva categoría "${name}" agregada. Subtipos actuales:`, loanSubTypes);
+
+        // 4. Cerrar modal
+        hideAddLoanTypeModal(); // Llama a la función global
+    }
+
+
+    // --- INICIALIZACIÓN ---
+    initMainSelector();
+    initIconSelector();
+
+}); // Fin del listener DOMContentLoaded
+
+
+

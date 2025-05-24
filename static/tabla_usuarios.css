@@ -1,0 +1,142 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #34495e;
+}
+
+.bienvenida {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.06);
+}
+
+.lista-usuarios {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-usuarios li {
+    margin: 12px 0;
+    padding: 12px;
+    background: #f0f2f5;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lista-usuarios li .usuario-info {
+    font-size: 16px;
+}
+
+.lista-usuarios li small {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.lista-usuarios li form {
+    align-self: flex-end;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-grid label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-grid input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-agregar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn.agregar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn.agregar:hover {
+    background-color: #218838;
+}
+
+.btn.eliminar {
+    background-color: #e74c3c;
+    color: white;
+    margin-top: 5px;
+}
+
+.btn.eliminar:hover {
+    background-color: #c0392b;
+}
+
+.acciones {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.acciones a {
+    color: #2980b9;
+    font-weight: bold;
+    margin: 0 12px;
+    text-decoration: none;
+}
+
+.acciones a:hover {
+    text-decoration: underline;
+}
+.alerta-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+

@@ -1,0 +1,113 @@
+{
+    "categorias": [
+        {
+            "id": "CAT001",
+            "nombre": "Computadoras y Accesorios",
+            "subcategorias": [
+                {
+                    "id": "SUB001",
+                    "nombre": "Computadoras",
+                    "tipos": ["Escritorio", "Laptops", "Workstations", "Servidores"]
+                },
+                {
+                    "id": "SUB002",
+                    "nombre": "Almacenamiento",
+                    "tipos": ["HDD", "SSD", "NVMe", "NAS"]
+                },
+                {
+                    "id": "SUB003",
+                    "nombre": "Memoria y procesamiento",
+                    "tipos": ["RAM", "Tarjetas gráficas", "Procesadores"]
+                },
+                {
+                    "id": "SUB004",
+                    "nombre": "Periféricos",
+                    "tipos": ["Monitores", "Teclados", "Ratones", "Impresoras"]
+                },
+                {
+                    "id": "SUB005",
+                    "nombre": "Energía y refrigeración",
+                    "tipos": ["Fuentes de poder", "UPS", "Ventiladores"]
+                }
+            ]
+        },
+        {
+            "id": "CAT002",
+            "nombre": "Comunicación Satelital",
+            "subcategorias": [
+                {
+                    "id": "SUB006",
+                    "nombre": "Teléfonos satelitales",
+                    "tipos": ["Iridium", "Thuraya", "Inmarsat"]
+                },
+                {
+                    "id": "SUB007",
+                    "nombre": "Módems y terminales",
+                    "tipos": ["VSAT", "BGAN", "Globalstar"]
+                },
+                {
+                    "id": "SUB008",
+                    "nombre": "Antenas satelitales",
+                    "tipos": ["Parabólicas", "Paneles", "Direccionales"]
+                },
+                {
+                    "id": "SUB009",
+                    "nombre": "Sistemas de rastreo satelital",
+                    "tipos": ["GPS avanzado", "Dispositivos de emergencia"]
+                }
+            ]
+        },
+        {
+            "id": "CAT003",
+            "nombre": "Radios de Comunicación",
+            "subcategorias": [
+                {
+                    "id": "SUB010",
+                    "nombre": "Radios por tipo",
+                    "tipos": ["VHF/UHF", "HF", "Digitales DMR", "TETRA", "P25"]
+                },
+                {
+                    "id": "SUB011",
+                    "nombre": "Equipos complementarios",
+                    "tipos": ["Repetidores", "Amplificadores de señal"]
+                },
+                {
+                    "id": "SUB012",
+                    "nombre": "Accesorios",
+                    "tipos": ["Antenas", "Baterías", "Cargadores", "Audífonos", "Micrófonos"]
+                }
+            ]
+        },
+        {
+            "id": "CAT004",
+            "nombre": "Equipos de Redes y Telecomunicaciones",
+            "subcategorias": [
+                {
+                    "id": "SUB013",
+                    "nombre": "Infraestructura de red",
+                    "tipos": ["Switches", "Routers", "Firewalls"]
+                },
+                {
+                    "id": "SUB014",
+                    "nombre": "Conectividad inalámbrica",
+                    "tipos": ["Puntos de acceso WiFi", "Controladores"]
+                },
+                {
+                    "id": "SUB015",
+                    "nombre": "Cableado y accesorios",
+                    "tipos": ["Cables de red", "Fibra óptica", "Conectores"]
+                },
+                {
+                    "id": "SUB016",
+                    "nombre": "Almacenamiento en red",
+                    "tipos": ["NAS", "SAN", "DAS"]
+                },
+                {
+                    "id": "SUB017",
+                    "nombre": "Montaje y organización",
+                    "tipos": ["Racks", "Gabinetes", "Patch panels"]
+                }
+            ]
+        }
+    ]
+}

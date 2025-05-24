@@ -1,0 +1,9 @@
+[
+    {
+        "id": "EMP001",
+        "nombre": "Ana",
+        "apellido": "García",
+        "departamento_id": "DEP001",
+        "historial_prestamos": []
+    }
+]

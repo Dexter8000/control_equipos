@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+    <link rel="stylesheet" href="/static/tabla_usuarios.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Usuarios</h1>
+        <p class="bienvenida">Bienvenido, {{ usuario }}</p>
+
+        {% if mensaje %}
+            <div class="alerta-exito">{{ mensaje }}</div>
+        {% endif %}
+
+        <div class="card">
+            <h2>Lista de Usuarios</h2>
+            <ul class="lista-usuarios">
+                {% for u in usuarios %}
+                <li>
+                    <div class="usuario-info">
+                        <strong>{{ u.nombre }} {{ u.apellido }} ({{ u.usuario }}) - Rol: {{ u.rol }}</strong><br>
+                        <small>Usuario: {{ u.usuario }} | Contraseña: ••••••••</small>
+                    </div>
+                    <form method="post" action="/usuarios/eliminar">
+                        <!-- 🔥 Corregido: se envía "usuario" y no "usuario_id" -->
+                        <input type="hidden" name="usuario" value="{{ u.usuario }}">
+                        <button type="submit" class="btn eliminar">Eliminar</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Agregar Usuario</h2>
+            <form method="post" action="/usuarios/agregar">
+                <div class="form-grid">
+                    <div>
+                        <label>Nombre:</label>
+                        <input type="text" name="nombre" required>
+                    </div>
+                    <div>
+                        <label>Apellido:</label>
+                        <input type="text" name="apellido" required>
+                    </div>
+                    <div>
+                        <label>Rol:</label>
+                        <input type="text" name="rol" required>
+                    </div>
+                    <div>
+                        <label>Usuario:</label>
+                        <input type="text" name="usuario" required>
+                    </div>
+                    <div>
+                        <label>Contraseña:</label>
+                        <input type="password" name="contrasena" required>
+                    </div>
+                    <div class="form-agregar">
+                        <button type="submit" class="btn agregar">Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="acciones">
+            <a href="/dashboard">⬅ Volver al Dashboard</a>
+            <!-- 🔥 Corregido el enlace de cerrar sesión -->
+            <a href="/auth/logout">Cerrar Sesión</a>
+        </div>
+    </div>
+</body>
+</html>

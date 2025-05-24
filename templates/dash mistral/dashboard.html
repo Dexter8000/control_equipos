@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de Control de Equipos - Gestión eficiente de préstamos y devoluciones">
+    <title>Sistema de Control de Equipos</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
+    <!-- Añadido favicon para mejorar la identidad visual -->
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Barra lateral con navegación principal -->
+    <aside class="sidebar" aria-label="Menú principal">
+        <div class="sidebar-header">
+            <div class="user-profile">
+                <div class="avatar" aria-hidden="true">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">{{ nombre }} {{ apellido }}</span>
+                    <span class="user-role">Administrador</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Navegación principal">
+            <ul>
+                <li>
+                    <a href="/dashboard" class="active" aria-current="page">
+                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/usuarios">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <span>Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/trabajadores">
+                        <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                        <span>Trabajadores</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/equipos">
+                        <i class="fas fa-laptop" aria-hidden="true"></i>
+                        <span>Equipos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/prestamos">
+                        <i class="fas fa-box-open" aria-hidden="true"></i>
+                        <span>Préstamos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/detalles-prestamo">
+                        <i class="fas fa-file-alt" aria-hidden="true"></i>
+                        <span>Detalles Préstamo</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/devoluciones">
+                        <i class="fas fa-undo-alt" aria-hidden="true"></i>
+                        <span>Devoluciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/auditoria">
+                        <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                        <span>Auditoría</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/configuracion">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="#" id="cerrar-sesion">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                        <span>Cerrar Sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="content">
+        <header class="app-header">
+            <div class="header-left">
+                <button class="menu-toggle" aria-label="Alternar menú lateral" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <h1>Sistema de Control de Equipos</h1>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <button class="notification-button" aria-label="Ver notificaciones" aria-expanded="false" aria-haspopup="true">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="badge" aria-label="3 notificaciones sin leer">3</span>
+                    </button>
+                    <div class="notification-dropdown" aria-label="Lista de notificaciones" hidden>
+                        <h3 class="notification-title">Notificaciones recientes</h3>
+                        <ul>
+                            <li class="notification-item">
+                                <div class="notification-icon"><i class="fas fa-info-circle" aria-hidden="true"></i></div>
+                                <div class="notification-content">
+                                    <p class="notification-text">Equipo #1234 devuelto con retraso</p>
+                                    <span class="notification-time">Hace 2 horas</span>
+                                </div>
+                            </li>
+                            <li class="notification-item">
+                                <div class="notification-icon"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i></div>
+                                <div class="notification-content">
+                                    <p class="notification-text">Solicitud de préstamo pendiente de aprobación</p>
+                                    <span class="notification-time">Hace 5 horas</span>
+                                </div>
+                            </li>
+                            <li class="notification-item">
+                                <div class="notification-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+                                <div class="notification-content">
+                                    <p class="notification-text">Nuevo equipo registrado en el sistema</p>
+                                    <span class="notification-time">Ayer</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="/notificaciones" class="view-all-notifications">Ver todas las notificaciones</a>
+                    </div>
+                </div>
+                <div class="user-menu">
+                    <button class="user-menu-button" aria-label="Menú de usuario" aria-expanded="false" aria-haspopup="true">
+                        <i class="fas fa-user-circle" aria-hidden="true"></i>
+                        <span>{{ nombre }}</span>
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="user-dropdown" hidden>
+                        <ul>
+                            <li><a href="/perfil"><i class="fas fa-user" aria-hidden="true"></i> Mi Perfil</a></li>
+                            <li><a href="/configuracion"><i class="fas fa-cog" aria-hidden="true"></i> Configuración</a></li>
+                            <li><a href="#" id="cerrar-sesion"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+            <div class="welcome-section">
+                <h2>¡Bienvenido, {{ nombre }} {{ apellido }}!</h2>
+                <p>Administra eficientemente los préstamos y devoluciones de equipos. Desde este panel podrás visualizar el estado actual del sistema y acceder rápidamente a todas las funcionalidades.</p>
+            </div>
+
+            <div class="dashboard-summary">
+                <h3>Resumen del sistema</h3>
+                <p>Visualiza el estado actual de los equipos, préstamos y usuarios registrados en el sistema.</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Equipos Disponibles</h3>
+                        <p class="card-value">25</p>
+                        <p class="card-description">Equipos listos para préstamo</p>
+                        <a href="/equipos" class="card-action">Ver Detalles</a>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-box-open" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Préstamos Activos</h3>
+                        <p class="card-value">10</p>
+                        <p class="card-description">Equipos actualmente prestados</p>
+                        <a href="/prestamos" class="card-action">Gestionar Préstamos</a>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-undo-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Devoluciones Pendientes</h3>
+                        <p class="card-value">3</p>
+                        <p class="card-description">Equipos por devolver hoy</p>
+                        <a href="/devoluciones" class="card-action">Ver Devoluciones</a>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Usuarios Registrados</h3>
+                        <p class="card-value">{{ num_usuarios }}</p>
+                        <p class="card-description">Usuarios con acceso al sistema</p>
+                        <a href="/usuarios" class="card-action">Administrar Usuarios</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Actividad Reciente</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+                        <div class="activity-content">
+                            <p class="activity-text"><strong>Juan Pérez</strong> solicitó préstamo de Laptop HP EliteBook</p>
+                            <span class="activity-time">Hace 30 minutos</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"><i class="fas fa-undo" aria-hidden="true"></i></div>
+                        <div class="activity-content">
+                            <p class="activity-text"><strong>María González</strong> devolvió Proyector Epson X41</p>
+                            <span class="activity-time">Hace 2 horas</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon"><i class="fas fa-plus-circle" aria-hidden="true"></i></div>
+                        <div class="activity-content">
+                            <p class="activity-text"><strong>Admin</strong> registró 5 nuevos equipos en el sistema</p>
+                            <span class="activity-time">Ayer, 15:30</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="/actividad" class="view-all-activity">Ver toda la actividad</a>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Sistema de Control de Equipos</p>
+                <nav class="footer-nav" aria-label="Enlaces de pie de página">
+                    <a href="/ayuda">Ayuda</a>
+                    <a href="/terminos">Términos de uso</a>
+                    <a href="/privacidad">Política de privacidad</a>
+                    <a href="/contacto">Contacto</a>
+                </nav>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidad para alternar la barra lateral
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    sidebar.classList.toggle('collapsed');
+                    content.classList.toggle('expanded');
+                });
+            }
+
+            // Funcionalidad para el menú de notificaciones
+            const notificationButton = document.querySelector('.notification-button');
+            const notificationDropdown = document.querySelector('.notification-dropdown');
+
+            if (notificationButton && notificationDropdown) {
+                notificationButton.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    notificationDropdown.hidden = isExpanded;
+
+                    // Cerrar el menú de usuario si está abierto
+                    if (!isExpanded) {
+                        userMenuButton.setAttribute('aria-expanded', 'false');
+                        userDropdown.hidden = true;
+                    }
+                });
+            }
+
+            // Funcionalidad para el menú de usuario
+            const userMenuButton = document.querySelector('.user-menu-button');
+            const userDropdown = document.querySelector('.user-dropdown');
+
+            if (userMenuButton && userDropdown) {
+                userMenuButton.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    userDropdown.hidden = isExpanded;
+
+                    // Cerrar el menú de notificaciones si está abierto
+                    if (!isExpanded) {
+                        notificationButton.setAttribute('aria-expanded', 'false');
+                        notificationDropdown.hidden = true;
+                    }
+                });
+            }
+
+            // Cerrar los menús desplegables si se hace clic fuera de ellos
+            document.addEventListener('click', function(event) {
+                // Para notificaciones
+                if (notificationButton && notificationDropdown &&
+                    !notificationButton.contains(event.target) &&
+                    !notificationDropdown.contains(event.target)) {
+                    notificationButton.setAttribute('aria-expanded', 'false');
+                    notificationDropdown.hidden = true;
+                }
+
+                // Para menú de usuario
+                if (userMenuButton && userDropdown &&
+                    !userMenuButton.contains(event.target) &&
+                    !userDropdown.contains(event.target)) {
+                    userMenuButton.setAttribute('aria-expanded', 'false');
+                    userDropdown.hidden = true;
+                }
+            });
+
+            // Añadir soporte para navegación con teclado en los menús
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+            // Función para manejar la navegación con teclado en menús desplegables
+            function setupKeyboardNavigation(triggerButton, dropdown) {
+                if (!triggerButton || !dropdown) return;
+
+                triggerButton.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        triggerButton.click();
+                    }
+                });
+
+                dropdown.addEventListener('keydown', function(e) {
+                    const focusableContent = dropdown.querySelectorAll(focusableElements);
+                    const firstItem = focusableContent[0];
+                    const lastItem = focusableContent[focusableContent.length - 1];
+
+                    if (e.key === 'Escape') {
+                        triggerButton.setAttribute('aria-expanded', 'false');
+                        dropdown.hidden = true;
+                        triggerButton.focus();
+                    } else if (e.key === 'Tab') {
+                        if (e.shiftKey && document.activeElement === firstItem) {
+                            e.preventDefault();
+                            lastItem.focus();
+                        } else if (!e.shiftKey && document.activeElement === lastItem) {
+                            e.preventDefault();
+                            firstItem.focus();
+                        }
+                    }
+                });
+            }
+
+            // Configurar navegación con teclado para los menús
+            setupKeyboardNavigation(notificationButton, notificationDropdown);
+            setupKeyboardNavigation(userMenuButton, userDropdown);
+
+            // Añadir soporte para modo oscuro
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+            // Aplicar tema según preferencia del sistema
+            function applyTheme() {
+                if (prefersDarkScheme.matches) {
+                    document.body.classList.add('dark-theme');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                }
+            }
+
+            // Aplicar tema inicial
+            applyTheme();
+
+            // Escuchar cambios en la preferencia del sistema
+            prefersDarkScheme.addEventListener('change', applyTheme);
+
+            // Funcionalidad para cerrar sesión
+            document.getElementById('cerrar-sesion').addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Enviar la solicitud al servidor para cerrar sesión
+                fetch('/auth/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(err => { throw new Error(err.detail || 'Error desconocido'); });
+                    }
+                    // Redirigir al usuario a la página de inicio de sesión
+                    window.location.href = '/auth';
+                })
+                .catch(err => {
+                    console.error('Error al cerrar sesión:', err.message);
+                    alert('Error al cerrar sesión: ' + err.message);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

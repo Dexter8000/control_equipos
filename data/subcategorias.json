@@ -1,0 +1,87 @@
+[
+    {
+        "id": "SUB001",
+        "nombre": "Computadoras",
+        "id_categoria": "CAT001"
+    },
+    {
+        "id": "SUB002",
+        "nombre": "Almacenamiento",
+        "id_categoria": "CAT001"
+    },
+    {
+        "id": "SUB003",
+        "nombre": "Memoria y procesamiento",
+        "id_categoria": "CAT001"
+    },
+    {
+        "id": "SUB004",
+        "nombre": "Periféricos",
+        "id_categoria": "CAT001"
+    },
+    {
+        "id": "SUB005",
+        "nombre": "Energía y refrigeración",
+        "id_categoria": "CAT001"
+    },
+    {
+        "id": "SUB006",
+        "nombre": "Teléfonos satelitales",
+        "id_categoria": "CAT002"
+    },
+    {
+        "id": "SUB007",
+        "nombre": "Módems y terminales",
+        "id_categoria": "CAT002"
+    },
+    {
+        "id": "SUB008",
+        "nombre": "Antenas satelitales",
+        "id_categoria": "CAT002"
+    },
+    {
+        "id": "SUB009",
+        "nombre": "Sistemas de rastreo satelital",
+        "id_categoria": "CAT002"
+    },
+    {
+        "id": "SUB010",
+        "nombre": "Radios por tipo",
+        "id_categoria": "CAT003"
+    },
+    {
+        "id": "SUB011",
+        "nombre": "Equipos complementarios",
+        "id_categoria": "CAT003"
+    },
+    {
+        "id": "SUB012",
+        "nombre": "Accesorios",
+        "id_categoria": "CAT003"
+    },
+    {
+        "id": "SUB013",
+        "nombre": "Infraestructura de red",
+        "id_categoria": "CAT004"
+    },
+    {
+        "id": "SUB014",
+        "nombre": "Conectividad inalámbrica",
+        "id_categoria": "CAT004"
+    },
+    {
+        "id": "SUB015",
+        "nombre": "Cableado y accesorios",
+        "id_categoria": "CAT004"
+    },
+    {
+        "id": "SUB016",
+        "nombre": "Almacenamiento en red",
+        "id_categoria": "CAT004"
+    },
+    {
+        "id": "SUB017",
+        "nombre": "Montaje y organización",
+        "id_categoria": "CAT004"
+    }
+]

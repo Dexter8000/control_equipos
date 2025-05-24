@@ -1,0 +1,18 @@
+[
+    {
+        "id": "CAT001",
+        "nombre": "Computadoras y Accesorios"
+    },
+    {
+        "id": "CAT002",
+        "nombre": "Comunicación Satelital"
+    },
+    {
+        "id": "CAT003",
+        "nombre": "Radios de Comunicación"
+    },
+    {
+        "id": "CAT004",
+        "nombre": "Equipos de Redes y Telecomunicaciones"
+    }
+]

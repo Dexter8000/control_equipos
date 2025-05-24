@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inventario de Equipos</title>
+    <link rel="stylesheet" href="/static/inventario.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="/static/inventario.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventario de Equipos</h1>
+
+        <div class="acciones">
+            <div class="search-container">
+                <input type="text" id="search-global" placeholder="Buscar equipo o periférico..." aria-label="Buscar equipo o periférico" />
+                <button id="btn-search" aria-label="Buscar"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="action-buttons">
+                <button id="btn-import" aria-label="Importar Equipos"><i class="fas fa-folder-open"></i> Importar Equipos</button>
+                <button id="btn-print" aria-label="Imprimir Inventario"><i class="fas fa-print"></i> Imprimir Inventario</button>
+                <button id="btn-add-equipo" aria-label="Agregar Equipo Principal"><i class="fas fa-plus"></i> Agregar Equipo Principal</button>
+                <button id="btn-add-periferico" aria-label="Agregar Periférico"><i class="fas fa-desktop"></i> Agregar Periférico</button>
+            </div>
+            <input type="file" id="file-import" accept="application/json" style="display: none;" aria-label="Seleccionar archivo JSON para importar" />
+        </div>
+
+        <div id="modal-equipo" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-equipo-titulo">
+            <div class="modal-content scrollable">
+                <h2 id="modal-equipo-titulo">Agregar Equipo Principal</h2>
+                <form id="form-agregar-equipo" method="post" action="/equipos/agregar" enctype="multipart/form-data">
+                    <label for="id-equipo">ID</label>
+                    <input type="text" name="id" id="id-equipo" placeholder="ID" required />
+
+                    <label for="nombre-equipo">Nombre</label>
+                    <input type="text" name="nombre" id="nombre-equipo" placeholder="Nombre" required />
+
+                    <label for="marca-equipo">Marca</label>
+                    <input type="text" name="marca" id="marca-equipo" placeholder="Marca" required />
+
+                    <label for="modelo-equipo">Modelo</label>
+                    <input type="text" name="modelo" id="modelo-equipo" placeholder="Modelo" required />
+
+                    <label for="serie-equipo">Serie</label>
+                    <input type="text" name="serie" id="serie-equipo" placeholder="Serie" required />
+
+                    <label for="categoria-equipo">Categoría</label>
+                    <select name="categoria" id="categoria-equipo">
+                        <option value="">Seleccionar Categoría</option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="subcategoria-equipo">Subcategoría</label>
+                    <select name="subcategoria" id="subcategoria-equipo">
+                        <option value="">Seleccionar Subcategoría</option>
+                        {% for subcategoria in subcategorias %}
+                            <option value="{{ subcategoria.id }}">{{ subcategoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="estado-equipo">Estado</label>
+                    <input type="text" name="estado" id="estado-equipo" placeholder="Estado" />
+
+                    <label for="condicion-equipo">Condición</label>
+                    <input type="text" name="condicion" id="condicion-equipo" placeholder="Condición" />
+
+                    <label for="tipo_adquisicion-equipo">Tipo de Adquisición</label>
+                    <input type="text" name="tipo_adquisicion" id="tipo_adquisicion-equipo" placeholder="Tipo de Adquisición" />
+
+                    <label for="id_departamento_asignado-equipo">Departamento Asignado</label>
+                    <select name="id_departamento_asignado" id="id_departamento_asignado-equipo">
+                        <option value="">Seleccionar Departamento</option>
+                        {% for departamento in departamentos %}
+                            <option value="{{ departamento.id }}">{{ departamento.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="ubicacion_especifica-equipo">Ubicación Específica</label>
+                    <input type="text" name="ubicacion_especifica" id="ubicacion_especifica-equipo" placeholder="Ubicación Específica" />
+
+                    <label for="responsable_actual-equipo">Responsable Actual</label>
+                    <input type="text" name="responsable_actual" id="responsable_actual-equipo"
+                           value="{{ usuario_actual.nombre if usuario_actual else '' }} {{ usuario_actual.apellido if usuario_actual else '' }}" readonly />
+                    <input type="hidden" name="responsable_actual_id" value="{{ usuario_actual.id if usuario_actual else '' }}" />
+
+                    <label for="fecha_creacion-equipo">⏰ Fecha de Creación</label>
+                    <input type="datetime-local" name="fecha_creacion" id="fecha_creacion-equipo" />
+
+                    <label for="fecha_adquisicion-equipo">⏰ Fecha de Adquisición</label>
+                    <input type="date" name="fecha_adquisicion" id="fecha_adquisicion-equipo" />
+
+                    <label for="detalles-equipo">Detalles / Notas</label>
+                    <textarea name="Detalles" id="detalles-equipo" placeholder="Detalles / Notas"></textarea>
+
+                    <input type="hidden" name="periferico" value="ninguno" />
+
+                    <button type="submit" class="btn-guardar">Guardar</button>
+                    <button type="button" onclick="cerrarModal('modal-equipo')" class="btn-cancelar"><i class="fas fa-times"></i> Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="modal-periferico" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-periferico-titulo">
+            <div class="modal-content scrollable">
+                <h2 id="modal-periferico-titulo">Agregar Periférico</h2>
+                <form id="form-agregar-periferico" method="post" action="/equipos/agregar_periferico" enctype="multipart/form-data">
+                    <label for="id-periferico">ID</label>
+                    <input type="text" name="id" id="id-periferico" placeholder="ID" required />
+
+                    <label for="nombre-periferico">Nombre</label>
+                    <input type="text" name="nombre" id="nombre-periferico" placeholder="Nombre" required />
+
+                    <label for="marca-periferico">Marca</label>
+                    <input type="text" name="marca" id="marca-periferico" placeholder="Marca" required />
+
+                    <label for="modelo-periferico">Modelo</label>
+                    <input type="text" name="modelo" id="modelo-periferico" placeholder="Modelo" required />
+
+                    <label for="serie-periferico">Serie</label>
+                    <input type="text" name="serie" id="serie-periferico" placeholder="Serie" required />
+
+                    <label for="categoria-periferico">Categoría</label>
+                    <select name="categoria" id="categoria-periferico">
+                        <option value="">Seleccionar Categoría</option>
+                        {% for categoria in categorias %}
+                            <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="subcategoria-periferico">Subcategoría</label>
+                    <select name="subcategoria" id="subcategoria-periferico">
+                        <option value="">Seleccionar Subcategoría</option>
+                        {% for subcategoria in subcategorias %}
+                            <option value="{{ subcategoria.id }}">{{ subcategoria.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="estado-periferico">Estado</label>
+                    <input type="text" name="estado" id="estado-periferico" placeholder="Estado" />
+
+                    <label for="condicion-periferico">Condición</label>
+                    <input type="text" name="condicion" id="condicion-periferico" placeholder="Condición" />
+
+                    <label for="tipo_adquisicion-periferico">Tipo de Adquisición</label>
+                    <input type="text" name="tipo_adquisicion" id="tipo_adquisicion-periferico" placeholder="Tipo de Adquisición" />
+
+                    <label for="id_departamento_asignado-periferico">Departamento Asignado</label>
+                    <select name="id_departamento_asignado" id="id_departamento_asignado-periferico">
+                        <option value="">Seleccionar Departamento</option>
+                        {% for departamento in departamentos %}
+                            <option value="{{ departamento.id }}">{{ departamento.nombre }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="ubicacion_especifica-periferico">Ubicación Específica</label>
+                    <input type="text" name="ubicacion_especifica" id="ubicacion_especifica-periferico" placeholder="Ubicación Específica" />
+
+                    <label for="responsable_actual-periferico">Responsable Actual</label>
+                    <input type="text" name="responsable_actual" id="responsable_actual-periferico"
+                           value="{{ usuario_actual.nombre if usuario_actual else '' }} {{ usuario_actual.apellido if usuario_actual else '' }}" readonly />
+                    <input type="hidden" name="responsable_actual_id" value="{{ usuario_actual.id if usuario_actual else '' }}" />
+
+                    <label for="fecha_creacion_perif">⏰ Fecha de Creación</label>
+                    <input type="datetime-local" id="fecha_creacion_perif" name="fecha_creacion" />
+
+                    <label for="fecha_adquisicion-perif">⏰ Fecha de Adquisición</label>
+                    <input type="date" name="fecha_adquisicion" id="fecha_adquisicion-perif" />
+
+                    <label for="detalles-periferico">Detalles / Notas</label>
+                    <textarea name="Detalles" id="detalles-periferico" placeholder="Detalles / Notas"></textarea>
+
+                    <label for="periferico-de">ID del Equipo Principal</label>
+                    <input type="text" name="periferico" id="periferico-de" placeholder="ID del Equipo Principal" required />
+
+                    <button type="submit" class="btn-guardar">Guardar</button>
+                    <button type="button" onclick="cerrarModal('modal-periferico')" class="btn-cancelar"><i class="fas fa-times"></i> Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+
+        {% if inventario %}
+        <table>
+            <caption>Inventario de Equipos</caption> <thead>
+                <tr>
+                    <th scope="col">✔</th> <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Serie</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Subcategoría</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Condición</th>
+                    <th scope="col">Tipo de Adquisición</th>
+                    <th scope="col">ID Departamento Asignado</th>
+                    <th scope="col">Ubicación Específica</th>
+                    <th scope="col">Responsable Actual</th>
+                    <th scope="col">Fecha de Creación</th>
+                    <th scope="col">Fecha de Adquisición</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">Periférico de</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for equipo in inventario %}
+                <tr>
+                    <td><input type="checkbox" class="check-selector" /></td>
+                    <td>{{ equipo.id }}</td>
+                    <td>{{ equipo.nombre }}</td>
+                    <td>{{ equipo.marca }}</td>
+                    <td>{{ equipo.modelo }}</td>
+                    <td>{{ equipo.serie }}</td>
+                    <td>{{ equipo.categoria }}</td>
+                    <td>{{ equipo.subcategoria }}</td>
+                    <td>{{ equipo.estado }}</td>
+                    <td>{{ equipo.condicion }}</td>
+                    <td>{{ equipo.tipo_adquisicion }}</td>
+                    <td>{{ equipo.id_departamento_asignado }}</td>
+                    <td>{{ equipo.ubicacion_especifica }}</td>
+                    <td>{{ equipo.responsable_actual }}</td>
+                    <td>{{ equipo.fecha_creacion }}</td>
+                    <td>{{ equipo.fecha_adquisicion }}</td>
+                    <td>{{ equipo.detalles }}</td>
+                    <td>{{ equipo.periferico }}</td>
+                </tr>
+
+                {% if equipo.perifericos %}
+                    {% for p in equipo.perifericos %}
+                    <tr class="periferico">
+                        <td><input type="checkbox" class="check-selector" /></td>
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.nombre }}</td>
+                        <td>{{ p.marca }}</td>
+                        <td>{{ p.modelo }}</td>
+                        <td>{{ p.serie }}</td>
+                        <td>{{ p.categoria }}</td>
+                        <td>{{ p.subcategoria }}</td>
+                        <td>{{ p.estado }}</td>
+                        <td>{{ p.condicion }}</td>
+                        <td>{{ p.tipo_adquisicion }}</td>
+                        <td>{{ p.id_departamento_asignado }}</td>
+                        <td>{{ p.ubicacion_especifica }}</td>
+                        <td>{{ p.responsable_actual }}</td>
+                        <td>{{ p.fecha_creacion }}</td>
+                        <td>{{ p.fecha_adquisicion }}</td>
+                        <td>{{ p.detalles }}</td>
+                        <td>{{ p.periferico }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="text-align: center;">No hay equipos registrados aún.</p>
+        {% endif %}
+
+        <div class="acciones">
+            <a href="/dashboard">&larr; Volver al Dashboard</a>
+        </div>
+    </div>
+
+    <div id="panel-acciones" class="panel-flotante hidden">
+        <button class="btn-cerrar" onclick="cerrarPanel()" aria-label="Cerrar panel de acciones">✖</button>
+        <button onclick="editarFilaSeleccionada()" class="btn-accion" aria-label="Editar fila seleccionada">✏️ Editar</button>
+        <button onclick="guardarCambiosFila()" class="btn-accion" aria-label="Guardar cambios de la fila">💾 Guardar</button>
+        <button onclick="cancelarEdicion()" class="btn-accion" aria-label="Cancelar edición">❌ Cancelar</button>
+        <button onclick="eliminarFilaSeleccionada()" class="btn-accion" aria-label="Eliminar fila seleccionada">🗑️ Eliminar</button>
+    </div>
+
+
+    <script src="/static/scripts/selects_dependientes.js"></script>
+<script>
+    const subcategorias = {{ subcategorias | tojson }};
+    setupSelects(subcategorias);
+</script>    
+
+
+    <script>
+        function cerrarModal(modalId) {
+            document.getElementById(modalId)?.classList.add('hidden');
+        }
+
+        function abrirModal(modalId) {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.getElementById(modalId)?.classList.remove('hidden');
+        }
+
+        document.getElementById('btn-add-equipo')?.addEventListener('click', () => abrirModal('modal-equipo'));
+        document.getElementById('btn-add-periferico')?.addEventListener('click', () => abrirModal('modal-periferico'));
+
+        window.addEventListener('click', function (event) {
+            document.querySelectorAll('.modal').forEach(modal =>

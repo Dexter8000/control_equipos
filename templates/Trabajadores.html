@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Trabajadores</title>
+    <link rel="stylesheet" href="/static/empleados.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+           integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Puedes añadir estilos específicos aquí si es necesario,
+           o asegurarte de que tu empleados.css contenga los estilos
+           para .modal, .modal-content, .close-button, y los nuevos
+           estilos para la tabla que añadiremos a continuación. */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="barra-navegacion-superior">
+            <a href="/dashboard"><i class="fas fa-arrow-left"></i> Volver al Dashboard</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+
+        <div id="contador-trabajadores" class="contador-trabajadores">
+            Total de trabajadores: {{ empleados | length }}
+        </div>
+
+        <h1><i class="fas fa-users"></i> Gestión de Trabajadores</h1>
+
+        <div class="search-container">
+            <h3><i class="fas fa-building"></i> Búsqueda por Departamento</h3>
+            <form id="form-buscar-departamento">
+                <input type="text" name="departamento" placeholder="Ingrese el departamento">
+                <button type="button" onclick="buscarDepartamento()"><i class="fas fa-search"></i> Buscar</button>
+            </form>
+        </div>
+
+        <div class="search-container">
+            <h3><i class="fas fa-search"></i> Búsqueda Global (Placa, Rango, Nombre, Apellido)</h3>
+            <form id="form-buscar-global">
+                <input type="text" name="global_search" placeholder="Ingrese Placa, Rango, Nombre o Apellido">
+                <button type="button" onclick="buscarGlobal()"><i class="fas fa-search"></i> Buscar</button>
+            </form>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <button id="mostrarDepartamentosBtn">Mostrar Datos de Departamentos</button>
+        </div>
+        <h2>Lista de Trabajadores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Placa</th>
+                    <th>Rango</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in empleados %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ e.placa }}</td>
+                    <td>{{ e.rango }}</td>
+                    <td>{{ e.nombre }}</td>
+                    <td>{{ e.apellido }}</td>
+                    <td>{{ e.nombre_departamento }}</td>
+                    <td class="table-actions">
+                        <div class="acciones-en-linea">
+                          <form method="post" action="/trabajadores/editar">
+                              <input type="hidden" name="placa" value="{{ e.placa }}">
+                              <input type="text" name="rango" value="{{ e.rango }}" style="width: 90px;">
+                              <input type="text" name="nombre" value="{{ e.nombre }}" style="width: 120px;">
+                              <input type="text" name="apellido" value="{{ e.apellido }}" style="width: 120px;">
+                              <input type="text" name="departamento_id" value="{{ e.departamento_id }}" style="width: 60px;">
+                              <button type="submit" class="guardar-button" title="Guardar"><i class="fas fa-save"></i></button>
+                          </form>
+                          <form method="post" action="/trabajadores/eliminar" onsubmit="return confirm('¿Eliminar este trabajador?')">
+                              <input type="hidden" name="placa" value="{{ e.placa }}">
+                              <button type="submit" class="eliminar-button" title="Eliminar"><i class="fas fa-trash-alt"></i></button>
+                          </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="modal-resultados-departamento" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" onclick="cerrarModal('modal-resultados-departamento')">&times;</span>
+                <div id="contenido-resultados-departamento">
+                    {% if busqueda_departamento %}
+                    <div class="search-results-department">
+                        <h4>Resultados para el departamento: {{ busqueda_departamento }} (Ordenado por Jerarquía)</h4>
+                        {% if resultados_departamento_ordenado %}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Placa</th>
+                                    <th>Rango</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for empleado in resultados_departamento_ordenado %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ empleado.placa }}</td>
+                                    <td>{{ empleado.rango }}</td>
+                                    <td>{{ empleado.nombre }}</td>
+                                    <td>{{ empleado.apellido }}</td>
+                                    <td>{{ empleado.nombre_departamento }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <p>No se encontraron trabajadores en el departamento "{{ busqueda_departamento }}".</p>
+                        {% endif %}
+                    </div>
+                    <div class="resumen-rangos">
+                        <h4>Resumen de Unidades por Rango</h4>
+                        {% if resumen_rangos %}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rango</th>
+                                    <th>Unidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for rango, cantidad in resumen_rangos.items() %}
+                                <tr>
+                                    <td>{{ rango }}</td>
+                                    <td>{{ cantidad }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <p>No se encontraron unidades por rango.</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-resultados-global" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" onclick="cerrarModal('modal-resultados-global')">&times;</span>
+                <div id="contenido-resultados-global">
+                    {% if busqueda_global %}
+                    <div class="search-results-global">
+                        <h4>Resultados de la búsqueda global para: "{{ busqueda_global }}"</h4>
+                        {% if resultados_global %}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Placa</th>
+                                    <th>Rango</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for empleado in resultados_global %}
+                                <tr>
+                                    <td>{{ loop.index }}</td>
+                                    <td>{{ empleado.placa }}</td>
+                                    <td>{{ empleado.rango }}</td>
+                                    <td>{{ empleado.nombre }}</td>
+                                    <td>{{ empleado.apellido }}</td>
+                                    <td>{{ empleado.nombre_departamento }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <p>No se encontraron resultados para la búsqueda "{{ busqueda_global }}".</p>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-departamentos" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button" onclick="cerrarModal('modal-departamentos')">&times;</span>
+                <h2>Datos de Departamentos</h2> <div id="departamentosTableContainer"></div>
+            </div>
+        </div>
+        <h2><i class="fas fa-user-plus"></i> Agregar Nuevo Trabajador</h2>
+        <form method="post" action="/trabajadores/agregar" class="form-agregar">
+            <input type="text" name="placa" placeholder="Placa" required>
+            <input type="text" name="rango" placeholder="Rango" required>
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Primer y Segundo Apellido" required>
+            <input type="text" name="departamento_id" placeholder="Departamento ID" required>
+            <button type="submit"><i class="fas fa-plus-circle"></i> Agregar</button>
+        </form>
+
+        <div class="barra-navegacion-inferior" style="margin-top: 30px; text-align: center;">
+            <a href="/dashboard"><i class="fas fa-arrow-left"></i> Volver al Dashboard</a>
+            <a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="acciones" style="display: none;">
+        <a href="/dashboard"><i class="fas fa-arrow-left"></i> Volver al Dashboard</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </div>
+
+    <script>
+        // Tus funciones JavaScript existentes
+        async function actualizarContador() {
+            try {
+                const response = await fetch('/trabajadores/contador');
+                const data = await response.json();
+                document.getElementById('contador-trabajadores').innerText = `Total de trabajadores: ${data.total}`;
+            } catch (error) {
+                console.error("Error al actualizar el contador:", error);
+            }
+        }
+
+        const formularioAgregar = document.querySelector('.form-agregar');
+        formularioAgregar?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(formularioAgregar);
+            await fetch('/trabajadores/agregar', {
+                method: 'POST',
+                body: formData
+            });
+
+            location.reload();
+        });
+
+        document.querySelectorAll('form[action="/trabajadores/eliminar"]').forEach(form => {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (confirm("¿Eliminar este trabajador?")) {
+                    const formData = new FormData(form);
+                    await fetch('/trabajadores/eliminar', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    form.closest('tr').remove();
+                    actualizarContador();
+                }
+            });
+        });
+
+        async function buscarDepartamento() {
+            const form = document.getElementById('form-buscar-departamento');
+            const formData = new FormData(form);
+            const response = await fetch('/trabajadores/buscar_departamento', {
+                method: 'POST',
+                body: formData
+            });
+            const html = await response.text();
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const resultados = tempDiv.querySelector('.search-results-department');
+            const resumen = tempDiv.querySelector('.resumen-rangos');
+            document.getElementById('contenido-resultados-departamento').innerHTML = (resultados ? resultados.outerHTML : '') + (resumen ? resumen.outerHTML : '');
+            document.getElementById('modal-resultados-departamento').style.display = 'block';
+        }
+
+        async function buscarGlobal() {
+            const form = document.getElementById('form-buscar-global');
+            const formData = new FormData(form);
+            const response = await fetch('/trabajadores/buscar_global', {
+                method: 'POST',
+                body: formData
+            });
+            const html = await response.text();
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const resultados = tempDiv.querySelector('.search-results-global');
+            document.getElementById('contenido-resultados-global').innerHTML = resultados ? resultados.outerHTML : '<p>No se encontraron resultados.</p>';
+            document.getElementById('modal-resultados-global').style.display = 'block';
+        }
+
+        // Función genérica para cerrar modales
+        function cerrarModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Cerrar los modales si el usuario hace clic fuera de ellos
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-resultados-departamento')) {
+                document.getElementById('modal-resultados-departamento').style.display = 'none';
+            }
+            if (event.target == document.getElementById('modal-resultados-global')) {
+                document.getElementById('modal-resultados-global').style.display = 'none';
+            }
+            // Incluimos el nuevo modal de departamentos aquí
+            if (event.target == document.getElementById('modal-departamentos')) {
+                document.getElementById('modal-departamentos').style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="/static/mostrar_departamentos.js"></script>
+    </body>
+</html>

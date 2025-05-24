@@ -1,0 +1,112 @@
+/* --- ESTILOS PARA EL LOGIN --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url("/static/imagen.jpg"); /* ✅ Fondo personalizado */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Capa oscura encima del fondo */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+  z-index: 1;
+}
+
+/* Contenedor de login */
+.login-container {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease;
+  opacity: 0.95;
+}
+
+.login-container:hover {
+  transform: scale(1.03);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  color: #ddd;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.form-group input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 32px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.login-button {
+  background-color: #00aaff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #007acc;
+}
+
+.mensaje {
+  color: #ff4b4b;
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: bold;
+}
